@@ -1,4 +1,17 @@
-sequenceDiagram
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#D3D3D3',
+      'primaryTextColor': '#000000',
+      'primaryBorderColor': '#D3D3D3',
+      'lineColor': '#D3D3D3',
+      'secondaryColor': '#D3D3D3',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%sequenceDiagram
     participant NM as "NodeMonitor"
     participant RN as "ROS Node"
     participant Pub as "Publisher (/alive_nodes)"
@@ -16,4 +29,3 @@ sequenceDiagram
     TM->>PHM: Send Consensus to PHM
     PHM-->>NM: Monitor and Respond
 
-    
