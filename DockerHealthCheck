@@ -1,0 +1,54 @@
+import docker
+import requests
+import time
+
+SERVER_URL = 'http://0.0.0.0./rpi/alive'
+LOG_FILE_PATH = './logs.txt'
+
+def log_status(message):
+    with open(LOG_FILE_PATH, 'a') as log_file:
+        log_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n")
+
+def notify_server(container_name):
+    try:
+        response = requests.post(SERVER_URL, json={"container": container_name})
+        log_status(f"Alerted server about {container_name}, status code {response.status_code}")
+    except Exception as e:
+        log_status(f"Failed to notify server about {container_name}: {e}")
+
+def restart_container(container):
+    try:
+        container.restart()
+        log_status(f"Restarted container {container.name}")
+    except Exception as e:
+        log_status(f"Failed to restart container {container.name}: {e}")
+
+def check_health(container):
+    health_status = container.attrs['State']['Health']['Status']
+    if health_status == 'unhealthy':
+        log_status(f"Container {container.name} is unhealthy. Notifying server and attempting restart.")
+        #notify_server(container.name)
+        restart_container(container)
+    elif health_status == 'starting':
+        log_status(f"Container {container.name} is starting. Monitoring status.")
+    else:
+        log_status(f"Container {container.name} is HEALTHY.")
+
+def check_containers():
+    client = docker.from_env()
+    containers = client.containers.list()
+
+    if not containers:
+        log_status("No running containers.")
+        return
+
+    for container in containers:
+        if 'Health' in container.attrs['State']:
+            check_health(container)
+        else:
+            log_status(f"Container {container.name} does not have a health check.")
+
+if __name__ == "__main__":
+    while True:
+        check_containers()
+        time.sleep(10)
