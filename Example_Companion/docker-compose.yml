@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  containera:
+    build: ./Application_Container
+    volumes:
+      - ./Application_Container:/app
+    ports:
+      - "4000:80"
+    environment:
+      - ROS_MASTER_URI=http://containera:11311
+    networks:
+      - rosnet
+
+  containerb:
+    build: ./PHM_Container
+    volumes:
+      - ./PHM_Container:/phm_tool
+    environment:
+      - CONTAINER_TO_MONITOR=containera
+      - ROS_MASTER_URI=http://containera:11311
+    depends_on:
+      - containera
+    networks:
+      - rosnet
+    command: ["python", "health_checks/health_script.py"]
+
+networks:
+  rosnet:
+    driver: bridge
