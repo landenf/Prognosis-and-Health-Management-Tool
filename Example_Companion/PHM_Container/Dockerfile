@@ -1,37 +1,26 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use an official Ubuntu 18.04 base image
+FROM ubuntu:18.04
 
-# Set the working directory
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install Python 3.8
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+ && add-apt-repository ppa:deadsnakes/ppa \
+ && apt-get update && apt-get install -y \
+    python3.8 \
+    python3.8-venv \
+    python3.8-dev \
+    python3-pip
+
+# Set the working directory in the container
 WORKDIR /phm_tool
 
 # Copy the current directory contents into the container at /phm_tool
 COPY . /phm_tool
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Setup sources.list and keys for ROS
-RUN apt-get update && apt-get install -y \
-    curl \
-    gnupg2 \
-    lsb-release \
- && curl -sSL "http://packages.ros.org/ros.key" | apt-key add - \
- && echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
-
-# Install ROS tools and dependencies
-RUN apt-get update && apt-get install -y \
-    ros-melodic-ros-base \
-    python3-rosdep \
-    python3-rosinstall \
-    python3-rosinstall-generator \
-    python3-wstool \
-    build-essential
-
-# Initialize rosdep
-RUN rosdep init && rosdep update
-
-# Ensure ROS environment variables are set
-RUN echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Run health check script
-CMD ["python", "health_checks/health_script.py"]
+CMD ["python3", "./health_checks/docker_checks.py"]

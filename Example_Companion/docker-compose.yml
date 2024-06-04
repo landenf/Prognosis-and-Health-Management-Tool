@@ -22,7 +22,7 @@ services:
       - containera
     networks:
       - rosnet
-    command: ["python", "health_checks/health_script.py"]
+    command: ["python3", "health_checks/ros_checks.py"]
 
 networks:
   rosnet:

@@ -5,7 +5,8 @@ from ros_node_consensus import check_consensus
 
 if __name__ == "__main__":
     while True:
-        check_node_topic_connections()
-        check_topic_traffic()
-        check_consensus()
-        time.sleep(30)  # Interval between health checks
+        print("B running")
+        # check_node_topic_connections()
+        # check_topic_traffic()
+        # check_consensus()
+        # time.sleep(30)  # Interval between health checks

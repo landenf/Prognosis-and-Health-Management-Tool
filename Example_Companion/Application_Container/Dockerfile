@@ -7,8 +7,14 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
-RUN apt-get update && apt-get install -y python3-pip && pip3 install --no-cache-dir -r requirements.txt
+# Install Python and required Python packages
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    pip3 install --no-cache-dir -r requirements.txt
+
+# Install additional ROS packages if needed
+# RUN apt-get install -y ros-melodic-some-other-package
+
 
 # Copy the ROS entrypoint script
 COPY ros_entrypoint.sh /
@@ -20,4 +26,4 @@ RUN chmod +x /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # Run app.py when the container launches
-CMD ["python3", "app.py"]
+#CMD ["python3", "./app.py"]
