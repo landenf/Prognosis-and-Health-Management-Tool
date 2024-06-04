@@ -15,7 +15,7 @@ def check_container_health(container_name):
         
         # Check container status
         container_state = container.attrs['State']
-        if container_state['Status'] != 'run~ning':
+        if container_state['Status'] != 'running':
             print(f"Container {container_name} is not running: {container_state['Status']}")
             sys.exit(1)
 
