@@ -3,11 +3,10 @@ import os
 import sys
 import time
 
-# Docker client
-client = docker.from_env()
+
 
 # Container to monitor
-container_to_monitor = os.getenv('CONTAINER_TO_MONITOR', 'containerA')
+container_to_monitor = os.getenv('CONTAINER_TO_MONITOR', 'containera')
 
 def check_container_health(container_name):
     try:
@@ -22,7 +21,7 @@ def check_container_health(container_name):
         # Example checks
         check_files(container)
         check_network(container)
-        check_ports(container)
+        #check_ports(container)
 
     except docker.errors.NotFound:
         print(f"Container {container_name} not found")
@@ -43,7 +42,8 @@ def check_files(container):
 
 def check_network(container):
     # Implement network connectivity checks here
-    exec_command = container.exec_run('ping -c 1 google.com')
+    #container = client.containers.get(container_Name)
+    exec_command = container.exec_run(f'ping -c 1 {container_to_monitor}')
     if exec_command.exit_code != 0:
         print(f"Network check failed for {container.name}")
         sys.exit(1)
@@ -63,5 +63,12 @@ def check_ports(container):
 
 if __name__ == "__main__":
     while True:
+        print("Running B")
+        # Docker client
+        try:
+            client = docker.from_env()
+            print("Docker client initialized.")
+        except Exception as e:
+            print(f"Error: {e}")
         check_container_health(container_to_monitor)
         time.sleep(30)  # Interval between health checks

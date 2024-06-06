@@ -1,23 +1,23 @@
 version: '3.8'
 services:
-  containera:
-    container_name: containera
-    build: ./Application_Container
-    volumes:
-      - ./Application_Container:/app
-    ports:
+   containera:
+     container_name: containera
+     build: ./Application_Container
+     volumes:
+       - ./Application_Container:/app
+     ports:
       - "4000:80"
-    environment:
+     environment:
       - ROS_MASTER_URI=http://containera:11311
-    networks:
+     networks:
       - rosnet
 
-  containerb:
+   containerb:
     container_name: containerb
     build: ./PHM_Container
     volumes:
-      - ./PHM_Container:/phm_tool
-      - /var/run/docker.sock:/var/run/docker.sock
+       - ./PHM_Container:/phm_tool
+       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - CONTAINER_TO_MONITOR=containera
       - ROS_MASTER_URI=http://containera:11311
@@ -26,7 +26,7 @@ services:
     networks:
       - rosnet
     user: root
-    command: ["python3", "health_checks/docker_checks.py"]
+    command: ["python3", "tests.py"]
 
 networks:
   rosnet:

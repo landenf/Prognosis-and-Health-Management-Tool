@@ -1,6 +1,6 @@
 
 def main():
-    print("A Running")
+    print("B Running")
 
 if __name__ == "__main__":
     main()

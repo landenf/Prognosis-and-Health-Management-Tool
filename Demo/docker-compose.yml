@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+   container1:
+     container_name: container1
+     build: ./Container1
+     volumes:
+       - ./Container1:/app
+     ports:
+      - "4000:80"
+     environment:
+      - ROS_MASTER_URI=http://container1:11311
+     networks:
+      - rosnet
+
+   container2:
+    container_name: container2
+    build: ./Container2
+    volumes:
+       - ./Container2:/phm_tool
+       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CONTAINER_TO_MONITOR=container1
+      - ROS_MASTER_URI=http://container1:11311
+    depends_on:
+      - container1
+    networks:
+      - rosnet
+    user: root
+
+networks:
+  rosnet:
+    driver: bridge

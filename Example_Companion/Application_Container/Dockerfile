@@ -7,14 +7,10 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install Python and required Python packages
+# Install the ping utility and other necessary packages
 RUN apt-get update && \
-    apt-get install -y python3-pip && \
-    pip3 install --no-cache-dir -r requirements.txt
-
-# Install additional ROS packages if needed
-# RUN apt-get install -y ros-melodic-some-other-package
-
+    apt-get install -y iputils-ping python3-pip && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the ROS entrypoint script
 COPY ros_entrypoint.sh /
@@ -23,7 +19,7 @@ COPY ros_entrypoint.sh /
 RUN chmod +x /ros_entrypoint.sh
 
 # Set the entrypoint
-ENTRYPOINT ["/ros_entrypoint.sh"]
+#ENTRYPOINT ["/ros_entrypoint.sh"]
 
-# Run app.py when the container launches
-#CMD ["python3", "./app.py"]
+# Run app.py and keep the container alive
+CMD ["sh", "-c", "python3 ./app.py && tail -f /dev/null"]

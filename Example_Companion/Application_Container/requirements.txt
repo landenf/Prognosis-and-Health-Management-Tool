@@ -1,5 +1,4 @@
 #requierments
 numpy
 scipy
-pyyaml
 rospkg
