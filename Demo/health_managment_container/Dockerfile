@@ -18,4 +18,4 @@ RUN pip3 install --no-cache-dir docker
 COPY . /src
 
 # Run the Python script
-CMD ["sh", "-c", "python3 ./app.py && tail -f /dev/null"]
+CMD ["sh", "-c", "python3 ./main.py && tail -f /dev/null"]

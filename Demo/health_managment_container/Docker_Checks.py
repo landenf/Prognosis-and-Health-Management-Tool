@@ -48,7 +48,7 @@ def check_container_status(container):
 
 def check_network(container, client):
     #ensure connectivity between PHM tool and application container
-    this = client.containers.get("container2")
+    this = client.containers.get("health_managment_container")
     exec_command = this.exec_run(f'ping -c 1 {container.name}')
     if exec_command.exit_code != 0:
         print(f"Network check failed for {container.name}")
@@ -74,14 +74,14 @@ def check_ports(container):
         else:
             print(f"Port {port} check passed for {container.name}")
 
-def main():
+def Run_Docker_Health_Checks():
     client = initialize_docker_client()
     print("Docker client initialized.")
     
-    containers_to_check = ["container1"]
+    containers_to_check = ["application_container"]
     for container_name in containers_to_check:
         print(f"Checking health of {container_name}")
         check_container_health(client, container_name)
 
 if __name__ == "__main__":
-    main()
+    Run_Docker_Health_Checks()

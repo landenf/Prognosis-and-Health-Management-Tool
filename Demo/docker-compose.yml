@@ -1,28 +1,28 @@
 version: '3.8'
 services:
-   container1:
-     container_name: container1
-     build: ./Container1
+   application_container:
+     container_name: application_container
+     build: ./application_container
      volumes:
-       - ./Container1:/app
+       - ./application_container:/app
      ports:
       - "4000:80"
      environment:
-      - ROS_MASTER_URI=http://container1:11311
+      - ROS_MASTER_URI=http://application_container:11311
      networks:
       - rosnet
 
-   container2:
-    container_name: container2
-    build: ./Container2
+   health_managment_container:
+    container_name: health_managment_container
+    build: ./health_managment_container
     volumes:
-       - ./Container2:/phm_tool
+       - ./health_managment_container:/phm_tool
        - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - CONTAINER_TO_MONITOR=container1
-      - ROS_MASTER_URI=http://container1:11311
+      - CONTAINER_TO_MONITOR=application_container
+      - ROS_MASTER_URI=http://application_container:11311
     depends_on:
-      - container1
+      - application_container
     networks:
       - rosnet
     user: root
