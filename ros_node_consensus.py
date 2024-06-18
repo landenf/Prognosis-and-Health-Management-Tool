@@ -24,8 +24,8 @@ def get_running_nodes(container_name):
     return node_list
 
 def check_consensus():
-    required_nodes = ['/node1', '/node2', '/node3']  # Replace with your node names
-    container_name = 'containerA'  # Replace with the name of Docker container A
+    required_nodes = ['/node1', '/node2', '/node3'] 
+    container_name = 'containerA'  
 
     rospy.init_node('consensus_check', anonymous=True)
     pub = rospy.Publisher('/consensus_status', String, queue_size=10)
