@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+   health_managment_container:
+    container_name: health_managment_container
+    build: ./health_managment_container
+    volumes:
+       - ./health_managment_container:/phm_tool
+       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CONTAINER_TO_MONITOR=ros_app_container
+      - ROS_MASTER_URI=http://ros_app_container:11311
+    networks:
+      - rosnet
+    user: root
+
+networks:
+  rosnet:
+    external: true

@@ -78,7 +78,7 @@ def Run_Docker_Health_Checks():
     client = initialize_docker_client()
     print("Docker client initialized.")
     
-    containers_to_check = ["application_container"]
+    containers_to_check = ["ros_app_container"]
     for container_name in containers_to_check:
         print(f"Checking health of {container_name}")
         check_container_health(client, container_name)
