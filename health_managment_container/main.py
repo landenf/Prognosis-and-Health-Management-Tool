@@ -1,11 +1,16 @@
-from Demo.health_managment_container.HealthCheckScripts.Docker_Checks import Run_Docker_Health_Checks
+from scripts.docker.docker_health_checks import RunDockerHealthChecks
 
 def CompanionComputerAliveStatus():
-    print("Companion Computer Is Running aboard agent.")
+    print("Companion Computer is running aboard agent.")
 
 def main():
+    # Layer 1 -- Companion Computer 
     CompanionComputerAliveStatus()
-    Run_Docker_Health_Checks()
+    
+    # Layer 2 -- Docker Container
+    RunDockerHealthChecks()
+
+    # Layer 3 -- ROS Nodes/Enviorment
 
 if __name__ == "__main__":
     main()
