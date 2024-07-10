@@ -30,13 +30,10 @@ def connect_to_networks(current_container, container_to_monitor, client):
         
         for network_name in networks:
             if network_name == "host":
-                # Special handling for host network
-                network_mode = "host"
-                current_container.update(network_mode=network_mode)
-                print(f"Connected {current_container.name} to host network")
+                print(f"Both containers are connected to host network")
             else:
                 network = client.networks.get(network_name)
                 network.connect(current_container)
-                print(f"Connected {current_container.name} to network {network_name}")
+                print(f"Connected {current_container.name} to network {network_name} to monitor {container_to_monitor.name}")
     except Exception as e:
         print(f"Error connecting to networks of {container_to_monitor}: {str(e)}")

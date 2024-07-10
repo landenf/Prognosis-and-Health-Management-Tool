@@ -14,7 +14,7 @@ def check_container_health(client, container_name):
         check_files(container)
 
     except docker.errors.NotFound:
-        print(f"Container {container_name} not found")
+        print(f"ERROR: Container {container_name} not found")
     except Exception as e:
         print(f"ERROR: checking health of container {container_name}: {str(e)}")
 
@@ -34,12 +34,12 @@ def check_container_status(container):
             else:
                 print(f"WARNING: Container {container.name} has health issues: {health_status}")
         else:
-            print(f"No health check defined for {container.name}.")
+            print(f"BYPASS: No health check defined for {container.name}.")
 
     except docker.errors.NotFound:
-        print(f"Container {container.name} not found.")
+        print(f"WARNING: Container {container.name} not found.")
     except Exception as e:
-        print(f"Error checking health of container {container.name}: {str(e)}")
+        print(f"ERROR: while checking health of container {container.name}: {str(e)}")
 
 def check_network(container, client):
     try:
@@ -76,20 +76,17 @@ def check_files(container):
     except Exception as e:
         print(f"Error checking files: {str(e)}")
 
-def RunDockerHealthChecks():
+def Run_Docker_Health_Checks():
+    #Start docker checks
+    container_to_monitor = os.getenv('CONTAINER_TO_MONITOR', 'default_container_name')
+    print(f"DOCKER: Checking health of {container_to_monitor}")
+
     client = initialize_docker_client()
     if not client:
         return
-
+    current_container = client.containers.get(socket.gethostname())
     print("Docker client initialized.")
 
-    current_container = client.containers.get(socket.gethostname())
-    container_to_monitor = os.getenv('CONTAINER_TO_MONITOR', 'default_container_name')
-    
     connect_to_container_volumes(current_container, container_to_monitor, client)
     connect_to_networks(current_container, container_to_monitor, client)
-
-    containers_to_check = [container_to_monitor]
-    for container_name in containers_to_check:
-        print(f"DOCKER: Checking health of {container_name}")
-        check_container_health(client, container_name)
+    check_container_health(client, container_to_monitor)
