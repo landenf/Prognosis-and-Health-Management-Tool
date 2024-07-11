@@ -1,5 +1,6 @@
 # docker_health_checks.py
 
+import subprocess
 import docker
 import socket
 import os
@@ -76,6 +77,38 @@ def check_files(container):
     except Exception as e:
         print(f"Error checking files: {str(e)}")
 
+def check_physical_devices(container, client):
+
+    def get_container_devices(container):
+        try:
+            container_info = container.attrs
+            devices = container_info['HostConfig']['Devices']
+            return devices
+        except docker.errors.NotFound:
+            print(f"Container {container.name} not found.")
+            return None
+    
+    devices = get_container_devices(container)
+    if not devices:
+        print("No devices found for the container.")
+        return
+
+    physical_devices = []
+
+    # Get list of block devices using lsblk
+    lsblk_output = subprocess.check_output(['lsblk', '-dn', '-o', 'NAME']).decode().split()
+
+    for device in devices:
+        host_path = device['PathOnHost']
+        device_name = host_path.split('/')[-1]
+        if device_name in lsblk_output:
+            physical_devices.append(host_path)
+
+    if physical_devices:
+        return f"Physical devices connected to host ports: {', '.join(physical_devices)}"
+    else:
+        return "No physical devices connected to the host ports."
+
 def Run_Docker_Health_Checks():
     #Start docker checks
     container_to_monitor = os.getenv('CONTAINER_TO_MONITOR', 'default_container_name')
@@ -90,3 +123,4 @@ def Run_Docker_Health_Checks():
     connect_to_container_volumes(current_container, container_to_monitor, client)
     connect_to_networks(current_container, container_to_monitor, client)
     check_container_health(client, container_to_monitor)
+    check_physical_devices(current_container, client)
