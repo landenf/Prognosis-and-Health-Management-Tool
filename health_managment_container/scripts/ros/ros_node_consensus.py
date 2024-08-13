@@ -2,7 +2,6 @@ import docker
 import time
 import os
 
-# Initialize Docker client
 client = docker.from_env()
 
 def exec_command_in_container(container_name, command):
@@ -11,19 +10,19 @@ def exec_command_in_container(container_name, command):
     return result.output.decode('utf-8').strip()
 
 def is_node_running(container_name, node_name):
-    command = "rosnode list"
+    command = "/bin/bash -c 'source /opt/ros/noetic/setup.bash && rosnode list'"
     node_list = exec_command_in_container(container_name, command).split('\n')
     return node_name in node_list
 
 def get_running_nodes(container_name):
-    command = "rosnode list"
+    command = "/bin/bash -c 'source /opt/ros/noetic/setup.bash && rosnode list'"
     node_list = exec_command_in_container(container_name, command).split('\n')
     print(node_list)
     return node_list
 
 #Main consensus function
 def check_consensus():
-    required_nodes = ['/talker', '/node2', '/node3']
+    required_nodes = ['/talker']
     container_name = os.getenv('CONTAINER_TO_MONITOR')
     print(container_name)
 
@@ -41,6 +40,7 @@ def check_consensus():
     for node in required_nodes:
         command = f"rosnode info {node}"
         node_info = exec_command_in_container(container_name, command)
+        print(node_info)
         for other_node in required_nodes:
             if other_node != node and other_node not in node_info:
                 print(f"{node} cannot see {other_node}.")

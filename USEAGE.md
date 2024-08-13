@@ -10,13 +10,13 @@
 ## Docker Checks
 
 ### Check the health of the app_container
--- Done and tested
+-- Done | tested
 
 ### Check that the app_container is connected to the correct volumes
--- Done not tested
+-- Done 
 
 ### Check that the app_container is connected to the same network
--- Done not tested
+-- Done 
 
 ### Check the app_container can see attached physical devices
 - Work in progress
@@ -24,13 +24,13 @@
 ## ROS Checks
 
 ### Check that all nodes are in consensus that the correct nodes are running
--- Work in progress
+-- Done
 
 ### Check that all req. topics are connected
--- Work in progress
+-- Done
 
 ### Check that topics are recieivng information and alert when not. 
--- Work in progress
+-- Done
 
 # TODO
 1) Fix broken checks

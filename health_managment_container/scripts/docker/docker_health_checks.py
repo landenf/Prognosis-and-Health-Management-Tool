@@ -95,7 +95,7 @@ def check_physical_devices(container, client):
 
     physical_devices = []
 
-    # Get list of block devices using lsblk
+    # Get list of block devices using lsblk // todo not sure how to do this
     lsblk_output = subprocess.check_output(['lsblk', '-dn', '-o', 'NAME']).decode().split()
 
     for device in devices:
