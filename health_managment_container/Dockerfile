@@ -8,6 +8,11 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y python3.8 python3-pip
 
+# Install lsusb (part of usbutils) and lsblk (part of util-linux) (lspci)
+RUN apt-get update && \
+    apt-get install -y usbutils util-linux pciutils && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set the working directory in the container
 WORKDIR /src
 

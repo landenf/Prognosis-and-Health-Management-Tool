@@ -3,12 +3,13 @@ services:
    health_managment_container:
     container_name: health_managment_container
     build: ./
+    tty: true
     privileged: true
     volumes:
       - ./health_managment_container:/phm_tool
       - /var/run/docker.sock:/var/run/docker.sock
       - /sys:/sys
-      - /dev:/dev
+      - /dev:/dev #Devices
     environment:
       - CONTAINER_TO_MONITOR=ros_app_container
       - ROS_MASTER_URI=http://ros_app_container:11311

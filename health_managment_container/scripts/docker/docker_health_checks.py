@@ -4,7 +4,7 @@ import subprocess
 import docker
 import socket
 import os
-from scripts.docker.docker_start import initialize_docker_client, connect_to_container_volumes, connect_to_networks
+from scripts.docker.docker_start import initialize_docker_client, connect_to_container_volumes, connect_containers_to_same_network
 
 def check_container_health(client, container_name):
     try:
@@ -42,29 +42,41 @@ def check_container_status(container):
     except Exception as e:
         print(f"ERROR: while checking health of container {container.name}: {str(e)}")
 
-def check_network(container, client):
+def check_network(container_to_monitor_name, client):
     try:
         current_container_id = socket.gethostname()  # Get the current container ID or hostname
         health_management_container = client.containers.get(current_container_id)
-        networks = container.attrs['NetworkSettings']['Networks']
+        container_to_monitor = client.containers.get(container_to_monitor_name)
+
+        # Get the network settings for both containers
+        monitor_networks = container_to_monitor.attrs['NetworkSettings']['Networks']
         health_management_networks = health_management_container.attrs['NetworkSettings']['Networks']
-        
-        common_networks = set(networks.keys()).intersection(health_management_networks.keys())
-        
-        if not common_networks:
-            print(f"FAILURE: No common networks found between {container.name} and health_management_container.")
+
+        # Ensure both containers are on the same network
+        if 'host' in monitor_networks and 'host' in health_management_networks:
+            print(f"SUCCESS: Both containers are connected to the host network.")
             return
-        
-        exec_command = health_management_container.exec_run(f'ping -c 1 {container.name}')
+
+        # Check for common networks
+        common_networks = set(monitor_networks.keys()).intersection(health_management_networks.keys())
+
+        if not common_networks:
+            print(f"FAILURE: No common networks found between {container_to_monitor_name} and health_management_container.")
+            return
+
+        # Perform ping check between containers
+        monitor_ip = container_to_monitor.attrs['NetworkSettings']['IPAddress']
+        exec_command = health_management_container.exec_run(f'ping -c 1 {monitor_ip}')
         if exec_command.exit_code != 0:
-            print(f"FAILURE: Network check failed for {container.name}. Exit code: {exec_command.exit_code}")
+            print(f"FAILURE: Network check failed for {container_to_monitor_name}. Exit code: {exec_command.exit_code}")
             print(f"Output: {exec_command.output.decode()}")
         else:
-            print(f"SUCCESS: Network check passed for {container.name}")
+            print(f"SUCCESS: Network check passed for {container_to_monitor_name}")
     except docker.errors.NotFound:
         print(f"WARNING: Health management container not found.")
     except Exception as e:
-        print(f"ERROR checking network for {container.name}: {str(e)}")
+        print(f"ERROR checking network for {container_to_monitor_name}: {str(e)}")
+
 
 def check_files(container):
     try:
@@ -78,36 +90,48 @@ def check_files(container):
         print(f"Error checking files: {str(e)}")
 
 def check_physical_devices(container, client):
-
+    results = []
+    
     def get_container_devices(container):
         try:
             container_info = container.attrs
             devices = container_info['HostConfig']['Devices']
-            return devices
+            if devices:
+                for device in devices:
+                    results.append(f"Container Device: {device['PathOnHost']} mapped to {device['PathInContainer']}")
+            else:
+                results.append("WARNING: No devices explicitly passed to the container.")
         except docker.errors.NotFound:
-            print(f"Container {container.name} not found.")
-            return None
+            print(f"ERROR: Container {container.name} not found.")
     
-    devices = get_container_devices(container)
-    if not devices:
-        print("No devices found for the container.")
-        return
+    def run_command(command):
+        try:
+            output = subprocess.check_output(command, shell=True).decode().splitlines()
+            return output if output else []
+        except subprocess.CalledProcessError:
+            return []
+    
+    get_container_devices(container)
+    
+    lsusb_output = run_command("lsusb")
+    if lsusb_output:
+        results.append("USB Devices (lsusb):")
+        results.extend(lsusb_output)
+    
+    lsblk_output = run_command("lsblk -o NAME,SIZE,TYPE,MOUNTPOINT")
+    if lsblk_output:
+        results.append("Block Devices (lsblk):")
+        results.extend(lsblk_output)
+    
+    lspci_output = run_command("lspci")
+    if lspci_output:
+        results.append("PCI Devices (lspci):")
+        results.extend(lspci_output)
 
-    physical_devices = []
-
-    # Get list of block devices using lsblk // todo not sure how to do this
-    lsblk_output = subprocess.check_output(['lsblk', '-dn', '-o', 'NAME']).decode().split()
-
-    for device in devices:
-        host_path = device['PathOnHost']
-        device_name = host_path.split('/')[-1]
-        if device_name in lsblk_output:
-            physical_devices.append(host_path)
-
-    if physical_devices:
-        return f"Physical devices connected to host ports: {', '.join(physical_devices)}"
+    if results:
+        print("\n".join(results))
     else:
-        return "No physical devices connected to the host ports."
+        print("No devices found or no output from checks.")
 
 def Run_Docker_Health_Checks():
     #Start docker checks
@@ -118,9 +142,9 @@ def Run_Docker_Health_Checks():
     if not client:
         return
     current_container = client.containers.get(socket.gethostname())
-    print("Docker client initialized.")
+    print("DOCKER: client initialized.")
 
     connect_to_container_volumes(current_container, container_to_monitor, client)
-    connect_to_networks(current_container, container_to_monitor, client)
+    connect_containers_to_same_network(current_container, container_to_monitor, client)
     check_container_health(client, container_to_monitor)
     check_physical_devices(current_container, client)

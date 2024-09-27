@@ -11,20 +11,21 @@
 
 ### Check the health of the app_container
 -- Done | tested
+- add docker health parameters 
 
 ### Check that the app_container is connected to the correct volumes
 -- Done 
 
 ### Check that the app_container is connected to the same network
--- Done 
+-- WORK IN PROGRESS
 
 ### Check the app_container can see attached physical devices
-- Work in progress
+- Done
 
 ## ROS Checks
 
 ### Check that all nodes are in consensus that the correct nodes are running
--- Done
+-- NODES SEE EACHOTHER HELP
 
 ### Check that all req. topics are connected
 -- Done
@@ -34,6 +35,7 @@
 
 # TODO
 1) Fix broken checks
+3) Logging - data processing - summary
 2) see if we can deploy this container
 3) do more tests with more nodes
 4) setup local logging and server

@@ -17,14 +17,12 @@ def is_node_running(container_name, node_name):
 def get_running_nodes(container_name):
     command = "/bin/bash -c 'source /opt/ros/noetic/setup.bash && rosnode list'"
     node_list = exec_command_in_container(container_name, command).split('\n')
-    print(node_list)
     return node_list
 
 #Main consensus function
 def check_consensus():
     required_nodes = ['/talker']
     container_name = os.getenv('CONTAINER_TO_MONITOR')
-    print(container_name)
 
     running_nodes = get_running_nodes(container_name)
     all_nodes_running = all(node in running_nodes for node in required_nodes)

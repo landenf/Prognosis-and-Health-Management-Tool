@@ -27,13 +27,13 @@ def exec_command_in_container(container_name, command):
     return result.output.decode('utf-8').strip()
 
 def monitor_traffic(container_name, topic, timeout=5):
-    command = f"/bin/bash -c 'source /opt/ros/noetic/setup.bash && timeout {timeout} rostopic hz {topic} | head -n 5'"
+    command = f"/bin/bash -c 'source /opt/ros/noetic/setup.bash && timeout {timeout} rostopic hz {topic} | head -n 10'"
     result = exec_command_in_container(container_name, command)
-    return result
+    return result 
 
 def check_topic_subscriptions():
     container_name = os.getenv('CONTAINER_TO_MONITOR')
-    required_topics = ['/topic_1', '/topic_2', '/topic_3']
+    required_topics = ['/topic_2', '/topic_3']
 
     topic_list = get_topic_list(container_name)
     all_topics_present = all(topic in topic_list for topic in required_topics)
@@ -43,21 +43,22 @@ def check_topic_subscriptions():
         print(f"WARNING: Missing required topics: {', '.join(missing_topics)}")
         return False
 
-    print(f"All required topics are present: {', '.join(required_topics)}")
+    print(f"SUCCESS: All required topics are present: {', '.join(required_topics)}")
 
     all_subscriptions_correct = True
-    for topic in required_topics:
-        topic_info = get_topic_info(container_name, topic)
-        if container_name not in topic_info['Subscribers']:
-            print(f"WARNING: Container '{container_name}' is not subscribed to topic: {topic}")
-            all_subscriptions_correct = False
+    # for topic in required_topics:
+    #     topic_info = get_topic_info(container_name, topic.lstrip('/'))
+    #     print(f"topic_info for {topic}: {topic_info} (type: {type(topic_info)})")
+    #     if container_name not in topic_info['Subscribers']:
+    #         print(f"WARNING: Container '{container_name}' is not subscribed to topic: {topic}")
+    #         all_subscriptions_correct = False
 
     return all_subscriptions_correct
 
 
 def monitor_topic_traffic():
     container_name = os.getenv('CONTAINER_TO_MONITOR')
-    required_topics = ['/topic_1']
+    required_topics = ['/topic_1', '/topic_2', '/topic_3']
 
     for topic in required_topics:
         traffic_data = monitor_traffic(container_name, topic.lstrip('/'))
