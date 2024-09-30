@@ -1,4 +1,0 @@
-#requierments
-numpy
-scipy
-rospkg
