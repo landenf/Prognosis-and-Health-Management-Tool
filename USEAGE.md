@@ -10,8 +10,7 @@
 ## Docker Checks
 
 ### Check the health of the app_container
--- Done | tested
-- add docker health parameters 
+-- Done 
 
 ### Check that the app_container is connected to the correct volumes
 -- Done 
@@ -33,15 +32,3 @@
 ### Check that topics are recieivng information and alert when not. 
 -- Done
 
-# TODO
-1) Fix broken checks
-3) Logging - data processing - summary
-2) see if we can deploy this container
-3) do more tests with more nodes
-4) setup local logging and server
-
-
-# rename and fix my network
-# add more nodes
-# clean up the cod eand make it readable
-# move ros app into this repo
