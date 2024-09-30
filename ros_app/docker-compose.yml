@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  ros_app:
+    image: ros_app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    container_name: ros_app_container
+    volumes:
+      - type: bind
+        source: ros_packages
+        target: /home/catkin_ws/src/
+    command: >
+      /bin/bash -c "bash"
+
+      networks:

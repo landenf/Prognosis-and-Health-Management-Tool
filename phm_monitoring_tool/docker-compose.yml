@@ -19,4 +19,4 @@ services:
 
 networks:
   my_network:
-    external: true  # Mark it as an external network
+    external: true 
