@@ -33,7 +33,7 @@ def monitor_traffic(container_name, topic, timeout=5):
 
 def check_topic_subscriptions():
     container_name = os.getenv('CONTAINER_TO_MONITOR')
-    required_topics = ['/topic_2', '/topic_3']
+    required_topics = ['/topic_1','/topic_2', '/topic_3']
 
     topic_list = get_topic_list(container_name)
     all_topics_present = all(topic in topic_list for topic in required_topics)
