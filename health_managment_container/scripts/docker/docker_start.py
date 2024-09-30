@@ -31,33 +31,17 @@ def connect_containers_to_same_network(health_management_container, container_to
         monitor_networks = container_to_monitor.attrs['NetworkSettings']['Networks']
         health_management_networks = health_management_container.attrs['NetworkSettings']['Networks']
 
-        # Case where one container is on the host network
-        if 'host' in monitor_networks and 'host' not in health_management_networks:
-            print(f"Connecting PHM container to host network.")
-            client.networks.get('host').connect(health_management_container)
-            return
-        elif 'host' in health_management_networks and 'host' not in monitor_networks:
-            print(f"Connecting monitored container to host network.")
-            client.networks.get('host').connect(container_to_monitor)
-            return
+        # Check if PHM tool is on 'my_network', and ensure it is.
+        if 'my_network' not in health_management_networks:
+            print(f"ACTION: PHM container not on 'my_network'. Connecting PHM container to 'my_network'.")
+            client.networks.get('my_network').connect(health_management_container)
 
-        # If neither container is on the host network, connect both to the host network
-        if 'host' not in monitor_networks and 'host' not in health_management_networks:
-            print(f"Connecting both containers to the host network.")
-            client.networks.get('host').connect(health_management_container)
-            client.networks.get('host').connect(container_to_monitor)
-            return
-
-        # Ensure both are on the same external network if host network isn't used
-        common_networks = set(monitor_networks.keys()).intersection(health_management_networks.keys())
-        if not common_networks:
-            # Connect both containers to the same external network if no common networks exist
-            for network_name in monitor_networks:
-                print(f"Connecting PHM container to {network_name}.")
-                client.networks.get(network_name).connect(health_management_container)
-            return
+        # Check if the monitored container is on 'my_network', and ensure it is.
+        if 'my_network' not in monitor_networks:
+            print(f"ACTION: Monitored container not on 'my_network'. Connecting monitored container to 'my_network'.")
+            client.networks.get('my_network').connect(container_to_monitor)
         else:
-            print(f"SUCCESS: Both containers are already on the same network(s): {', '.join(common_networks)}")
+            print(f"SUCCESS: Monitored container is already on 'my_network'.")
 
     except docker.errors.NotFound as e:
         print(f"ERROR: Container not found. {str(e)}")

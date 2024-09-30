@@ -6,12 +6,12 @@ import socket
 import os
 from scripts.docker.docker_start import initialize_docker_client, connect_to_container_volumes, connect_containers_to_same_network
 
-def check_container_health(client, container_name):
+def check_container_health(current_container, client, container_name):
     try:
         container = client.containers.get(container_name)
 
         check_container_status(container)
-        check_network(container, client)
+        check_network(current_container, container_name, client)
         check_files(container)
 
     except docker.errors.NotFound:
@@ -42,10 +42,8 @@ def check_container_status(container):
     except Exception as e:
         print(f"ERROR: while checking health of container {container.name}: {str(e)}")
 
-def check_network(container_to_monitor_name, client):
+def check_network(health_management_container, container_to_monitor_name, client):
     try:
-        current_container_id = socket.gethostname()  # Get the current container ID or hostname
-        health_management_container = client.containers.get(current_container_id)
         container_to_monitor = client.containers.get(container_to_monitor_name)
 
         # Get the network settings for both containers
@@ -53,9 +51,9 @@ def check_network(container_to_monitor_name, client):
         health_management_networks = health_management_container.attrs['NetworkSettings']['Networks']
 
         # Ensure both containers are on the same network
-        if 'host' in monitor_networks and 'host' in health_management_networks:
-            print(f"SUCCESS: Both containers are connected to the host network.")
-            return
+        if 'my_network' in monitor_networks and 'my_network' in health_management_networks:
+            print(f"SUCCESS: Both containers are connected to the my_network network.")
+            
 
         # Check for common networks
         common_networks = set(monitor_networks.keys()).intersection(health_management_networks.keys())
@@ -65,13 +63,13 @@ def check_network(container_to_monitor_name, client):
             return
 
         # Perform ping check between containers
-        monitor_ip = container_to_monitor.attrs['NetworkSettings']['IPAddress']
+        monitor_ip = container_to_monitor.attrs['NetworkSettings']['Networks']['my_network']['IPAddress']
         exec_command = health_management_container.exec_run(f'ping -c 1 {monitor_ip}')
         if exec_command.exit_code != 0:
             print(f"FAILURE: Network check failed for {container_to_monitor_name}. Exit code: {exec_command.exit_code}")
             print(f"Output: {exec_command.output.decode()}")
         else:
-            print(f"SUCCESS: Network check passed for {container_to_monitor_name}")
+            print(f"SUCCESS: IP Ping network check passed for {container_to_monitor_name}")
     except docker.errors.NotFound:
         print(f"WARNING: Health management container not found.")
     except Exception as e:
@@ -146,5 +144,5 @@ def Run_Docker_Health_Checks():
 
     connect_to_container_volumes(current_container, container_to_monitor, client)
     connect_containers_to_same_network(current_container, container_to_monitor, client)
-    check_container_health(client, container_to_monitor)
+    check_container_health(current_container, client, container_to_monitor)
     check_physical_devices(current_container, client)

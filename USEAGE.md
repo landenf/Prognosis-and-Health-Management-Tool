@@ -39,3 +39,9 @@
 2) see if we can deploy this container
 3) do more tests with more nodes
 4) setup local logging and server
+
+
+# rename and fix my network
+# add more nodes
+# clean up the cod eand make it readable
+# move ros app into this repo

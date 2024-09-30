@@ -1,12 +1,12 @@
 version: '3.8'
 services:
-   health_managment_container:
-    container_name: health_managment_container
+   health_management_container:
+    container_name: health_management_container
     build: ./
     tty: true
     privileged: true
     volumes:
-      - ./health_managment_container:/phm_tool
+      - ./health_management_container:/phm_tool
       - /var/run/docker.sock:/var/run/docker.sock
       - /sys:/sys
       - /dev:/dev #Devices
@@ -14,3 +14,9 @@ services:
       - CONTAINER_TO_MONITOR=ros_app_container
       - ROS_MASTER_URI=http://ros_app_container:11311
     user: root
+    networks:
+      - my_network  
+
+networks:
+  my_network:
+    external: true  # Mark it as an external network
