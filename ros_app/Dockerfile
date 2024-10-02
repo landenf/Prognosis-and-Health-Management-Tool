@@ -30,7 +30,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && catkin_make
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 CMD echo "OK" || exit 0
+#Default Healthcheck fetches rostopics as a check that roscore is running
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD rostopic list > /dev/null 2>&1 || exit 1
 
 COPY ros.sh /
 RUN ls -la /
