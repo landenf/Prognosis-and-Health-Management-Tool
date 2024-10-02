@@ -34,13 +34,13 @@
 
 ### For both options:
 
-```$ roscore&```
+```$ roscore& ```
 
 ### For Single Node:
-```$ rosrun python_package_example ros_python_app.py```
+```$ rosrun python_package_example ros_python_app.py ```
 
 ### For Multiple Nodes:
-`roslaunch multiple_nodes_example launch_nodes.launch`
+` roslaunch multiple_nodes_example launch_nodes.launch `
 
 ### And you should see a message like:
 

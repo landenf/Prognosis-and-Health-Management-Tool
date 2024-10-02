@@ -12,5 +12,3 @@ services:
         target: /home/catkin_ws/src/
     command: >
       /bin/bash -c "bash"
-
-      networks:

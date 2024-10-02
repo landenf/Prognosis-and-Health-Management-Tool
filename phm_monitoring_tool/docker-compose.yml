@@ -14,9 +14,3 @@ services:
       - CONTAINER_TO_MONITOR=ros_app_container
       - ROS_MASTER_URI=http://ros_app_container:11311
     user: root
-    networks:
-      - my_network  
-
-networks:
-  my_network:
-    external: true 
