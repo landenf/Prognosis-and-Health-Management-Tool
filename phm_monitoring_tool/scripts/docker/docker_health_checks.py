@@ -34,7 +34,7 @@ def check_container_status(container):
             if health_status == 'healthy':
                 print(f"SUCCESS: Container {container.name} is healthy.")
             else:
-                print(f"WARNING: Container {container.name} has health issues: {health_status}")
+                print(f"FAILURE: Container {container.name} has internal health check issues: {health_status}")
         else:
             print(f"BYPASS: No health check defined for {container.name}.")
 
