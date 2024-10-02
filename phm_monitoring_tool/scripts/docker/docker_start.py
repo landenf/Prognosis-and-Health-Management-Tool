@@ -23,27 +23,65 @@ def connect_to_container_volumes(current_container, container_to_monitor, client
     except Exception as e:
         print(f"ERROR: connecting to volumes of {container_to_monitor}: {str(e)}")
 
-def connect_containers_to_same_network(health_management_container, container_to_monitor_name, client):
+def get_container_networks(container):
+    """Helper function to retrieve the networks a container is connected to."""
     try:
-        container_to_monitor = client.containers.get(container_to_monitor_name)
+        networks = container.attrs['NetworkSettings']['Networks']
+        return networks
+    except Exception as e:
+        print(f"Error getting networks for container {container.name}: {str(e)}")
+        return None
 
-        # Get network settings for both containers
-        monitor_networks = container_to_monitor.attrs['NetworkSettings']['Networks']
-        health_management_networks = health_management_container.attrs['NetworkSettings']['Networks']
+def disconnect_from_existing_networks(container, client):
+    """Disconnect the container from all networks it is currently connected to."""
+    networks = get_container_networks(container)
+    for network_name in networks.keys():
+        print(f"Disconnecting {container.name} from {network_name}")
+        client.networks.get(network_name).disconnect(container)
 
-        # Check if PHM tool is on 'my_network', and ensure it is.
-        if 'my_network' not in health_management_networks:
-            print(f"ACTION: PHM container not on 'my_network'. Connecting PHM container to 'my_network'.")
-            client.networks.get('my_network').connect(health_management_container)
+def connect_containers_to_same_network(phm_container, ros_container_name, client):
+    try:
+        ros_container = client.containers.get(ros_container_name)
+        
+          # Disconnect PHM from any existing networks
+        disconnect_from_existing_networks(phm_container, client)
 
-        # Check if the monitored container is on 'my_network', and ensure it is.
-        if 'my_network' not in monitor_networks:
-            print(f"ACTION: Monitored container not on 'my_network'. Connecting monitored container to 'my_network'.")
-            client.networks.get('my_network').connect(container_to_monitor)
+        # Get the networks the ROS app container is connected to
+        ros_networks = get_container_networks(ros_container)
+
+        if not ros_networks:
+            print(f"ERROR: No networks found for {ros_container_name}")
+            return
+        
+        # Check if the ROS app is only connected to the host network
+        if 'host' in ros_networks.keys() and len(ros_networks) == 1:
+            print(f"ROS app is only connected to the host network, creating a new network.")
+
+            # Create a new bridge network
+            new_network = client.networks.create("phm_shared_network", driver="bridge")
+
+            # Connect both containers to the new network
+            new_network.connect(ros_container)
+            new_network.connect(phm_container)
+
+            print(f"SUCCESS: Both containers connected to the new network: phm_shared_network")
+            return
         else:
-            print(f"SUCCESS: Monitored container is already on 'my_network'.")
+            # Find the first network that the ROS app container is connected to (other than host)
+            for network_name in ros_networks.keys():
+                if network_name != 'host':
+                    print(f"Connecting PHM tool to ROS app's network: {network_name}")
+
+                    # Connect the PHM tool to this network
+                    network = client.networks.get(network_name)
+                    try:
+                        network.connect(phm_container)
+                        print(f"PHM tool successfully connected to {network_name}")
+                    except docker.errors.APIError as e:
+                        print(f"ERROR: Could not connect PHM tool to network {network_name}: {str(e)}")
+                    return
 
     except docker.errors.NotFound as e:
-        print(f"ERROR: Container not found. {str(e)}")
+        print(f"ERROR: Container not found: {str(e)}")
     except Exception as e:
         print(f"ERROR: {str(e)}")

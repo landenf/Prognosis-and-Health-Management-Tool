@@ -1,6 +1,7 @@
 # docker_health_checks.py
 
 import subprocess
+import time
 import docker
 import socket
 import os
@@ -44,26 +45,26 @@ def check_container_status(container):
 
 def check_network(health_management_container, container_to_monitor_name, client):
     try:
+        health_management_container = client.containers.get(health_management_container.name) # refresh getting container
         container_to_monitor = client.containers.get(container_to_monitor_name)
 
         # Get the network settings for both containers
         monitor_networks = container_to_monitor.attrs['NetworkSettings']['Networks']
         health_management_networks = health_management_container.attrs['NetworkSettings']['Networks']
 
-        # Ensure both containers are on the same network
-        if 'my_network' in monitor_networks and 'my_network' in health_management_networks:
-            print(f"SUCCESS: Both containers are connected to the my_network network.")
-            
 
-        # Check for common networks
+        # Check for common networks dynamically (avoid hardcoding network names)
         common_networks = set(monitor_networks.keys()).intersection(health_management_networks.keys())
 
         if not common_networks:
             print(f"FAILURE: No common networks found between {container_to_monitor_name} and health_management_container.")
             return
 
+        network_name = next(iter(common_networks)) 
+        print(f"SUCCESS: Both containers are connected to the same network: {network_name}")
+
         # Perform ping check between containers
-        monitor_ip = container_to_monitor.attrs['NetworkSettings']['Networks']['my_network']['IPAddress']
+        monitor_ip = container_to_monitor.attrs['NetworkSettings']['Networks'][network_name]['IPAddress']
         exec_command = health_management_container.exec_run(f'ping -c 1 {monitor_ip}')
         if exec_command.exit_code != 0:
             print(f"FAILURE: Network check failed for {container_to_monitor_name}. Exit code: {exec_command.exit_code}")
