@@ -1,10 +1,11 @@
 import datetime
 import gzip
 import shutil
+import os
 
-log_file = "/src/health_management_container/health_report.log"
-report_file = "/src/health_management_container/summary_report.txt"
-compressed_file = "/src/health_management_container/summary_report_compressed.gz"
+log_file = "/src/healthmanagement/logs/health_report.log"
+report_file = "/src/healthmanagement/logs/summary_report.txt"
+compressed_file = "/src/healthmanagement/logs/summary_report_compressed.gz"
 
 # Function to log messages to a file
 def log_message(message):
@@ -51,8 +52,23 @@ def compress_report():
             shutil.copyfileobj(f_in, f_out)
     print(f"Compressed report saved as {compressed_file}")
 
+def ensure_log_files_exist(log_file, report_file, compressed_file):
+    log_dir = os.path.dirname(log_file)
+
+    # Create the logs directory if it doesn't exist
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+        print(f"Created directory: {log_dir}")
+    
+    # Create empty log files if they don't exist
+    for file in [log_file, report_file, compressed_file]:
+        if not os.path.exists(file):
+            with open(file, 'w') as f:
+                f.write('')  # Create an empty file
+            print(f"Created file: {file}")
 
 # Generate the summary report
+ensure_log_files_exist(log_file, report_file, compressed_file)
 generate_report()
 compress_report()
 print(f"Report generated saved as {report_file}")

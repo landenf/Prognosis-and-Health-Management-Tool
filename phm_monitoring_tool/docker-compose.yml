@@ -6,7 +6,7 @@ services:
     tty: true
     privileged: true
     volumes:
-      - ./health_management_container:/phm_tool
+      - ./logs:/src/healthmanagement/logs
       - /var/run/docker.sock:/var/run/docker.sock
       - /sys:/sys
       - /dev:/dev #Devices
