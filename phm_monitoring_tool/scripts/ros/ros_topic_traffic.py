@@ -1,6 +1,7 @@
 import os
 import time
 import docker
+from scripts.log_manager import log_message
 
 client = docker.from_env()
 
@@ -42,18 +43,12 @@ def check_topic_subscriptions():
 
     if not all_topics_present:
         missing_topics = [topic for topic in required_topics if topic not in topic_list]
-        print(f"WARNING: Missing required topics: {', '.join(missing_topics)}")
+        log_message(f"FAILURE: Missing required topics: {', '.join(missing_topics)}")
         return False
 
-    print(f"SUCCESS: All required topics are present: {', '.join(required_topics)}")
+    log_message(f"SUCCESS: All required topics are present: {', '.join(required_topics)}")
 
     all_subscriptions_correct = True
-    # for topic in required_topics:
-    #     topic_info = get_topic_info(container_name, topic.lstrip('/'))
-    #     print(f"topic_info for {topic}: {topic_info} (type: {type(topic_info)})")
-    #     if container_name not in topic_info['Subscribers']:
-    #         print(f"WARNING: Container '{container_name}' is not subscribed to topic: {topic}")
-    #         all_subscriptions_correct = False
 
     return all_subscriptions_correct
 
@@ -66,7 +61,7 @@ def monitor_topic_traffic():
     for topic in required_topics:
         traffic_data = monitor_traffic(container_name, topic.lstrip('/'))
         if "average rate:" not in traffic_data:
-            print(f"WARNING: No traffic detected on topic: {topic}")
+            log_message(f"FAILURE: No traffic detected on topic: {topic}")
         else:
             lines = traffic_data.splitlines()[:5]  # Get the first 5 lines
             average_rate = None
@@ -75,4 +70,4 @@ def monitor_topic_traffic():
                     average_rate = line.split('average rate:')[1].strip()
                     break
             if average_rate:
-                print(f"Average rate for {topic}: {average_rate}")
+                log_message(f"Average rate for {topic}: {average_rate}")

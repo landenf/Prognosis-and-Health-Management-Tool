@@ -1,0 +1,111 @@
+2024-10-09 13:54:52 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:54:52 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:54:52 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:54:52 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:54:52 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:55:22 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:55:22 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:55:22 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:55:22 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:55:22 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:56:06 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:56:06 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:56:06 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:56:06 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:56:06 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:56:20 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:56:20 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:56:20 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:56:20 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:56:20 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:56:20 ---- End of Report
+2024-10-09 13:57:24 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:57:24 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:57:24 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:57:24 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:57:24 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:57:24 ---- End of Report
+2024-10-09 13:57:57 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:57:57 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:57:57 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:57:57 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:57:57 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:57:57 ---- End of Report
+2024-10-09 13:58:01 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:58:01 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:58:01 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:58:01 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:58:01 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:58:01 ---- End of Report
+2024-10-09 13:58:02 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 13:58:02 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 13:58:02 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 13:58:02 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 13:58:02 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 13:58:02 ---- End of Report
+2024-10-09 14:00:07 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:00:07 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:00:07 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:00:07 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:00:07 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:00:07 ---- End of Report
+2024-10-09 14:00:19 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:00:19 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:00:19 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:00:19 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:00:19 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:00:19 ---- End of Report
+2024-10-09 14:01:35 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:01:35 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:01:35 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:01:35 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:01:35 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:01:35 ---- Start of Report
+2024-10-09 14:01:39 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:01:39 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:01:39 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:01:39 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:01:39 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:01:39 ---- Start of Report
+2024-10-09 14:01:41 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:01:41 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:01:41 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:01:41 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:01:41 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:01:41 ---- Start of Report
+2024-10-09 14:01:42 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:01:42 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:01:42 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:01:42 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:01:42 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:01:42 ---- Start of Report
+2024-10-09 14:02:02 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:02:02 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:02:02 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:02:02 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:02:02 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:02:02 ---- Start of Report
+2024-10-09 14:02:04 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:02:04 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:02:04 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:02:04 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:02:04 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:02:04 ---- Start of Report
+2024-10-09 14:02:34 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:02:34 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:02:34 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:02:34 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:02:34 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:02:34 ---- Start of a new report
+2024-10-09 14:02:36 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:02:36 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:02:36 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:02:36 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:02:36 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:02:36 ---- Start of a new report
+2024-10-09 14:02:37 ---- SUCCESS: Container ros_app_container is running
+2024-10-09 14:02:37 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-09 14:02:37 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-09 14:02:37 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-09 14:02:37 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists
+2024-10-09 14:02:37 ---- Start of a new report
