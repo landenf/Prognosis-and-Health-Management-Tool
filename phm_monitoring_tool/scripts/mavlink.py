@@ -1,5 +1,6 @@
 import time
 import os
+from phm_monitoring_tool.config.HealthChecks import HealthLevel
 from pymavswarm import MavSwarm
 from argparse import ArgumentParser
 from concurrent.futures import Future
@@ -11,12 +12,12 @@ def parse_args():
     parser.add_argument("baud", type=int, help="baudrate to establish a connection at")
     return parser.parse_args()
 
-
 def print_message_response_cb(future: Future) -> None:
     responses = future.result()
     for response in responses:
         print(f"Result of {response.message_type} message sent to ({response.target_agent_id}): {response.code}")
     return
+
 
 def extract_last_health_report(log_file_path):
     """
@@ -77,14 +78,40 @@ def listen_for_reports(mavswarm, timeout=30):
     return received_reports
 
 
-def calculate_consensus(received_reports):
+def calculate_consensus(received_reports, health_checks):
+    """
+    Calculate the consensus based on received reports, ensuring that if there are multiple
+    levels of failures, the drone is marked as multiple/critical.
+
+    :param received_reports: Dictionary of {drone_id: health_check_report}
+    :param health_checks: List of health checks with details about critical levels and health levels
+    :return: Consensus report {drone_id: HealthLevel}
+    """
     consensus = {}
 
+    # Convert health_checks to a dictionary for easy lookup by check ID
+    health_check_map = {check["id"]: check for check in health_checks}
+
     for drone_id, report in received_reports.items():
-        consensus[drone_id] = 1 if 1 in report else 0  # Mark unhealthy if there's any failure (1)
+        failing_levels = set()  # A set to track distinct failing levels
+
+        for check_id, result in enumerate(report):
+            if result == 1:  # If a failure is reported
+                check = health_check_map.get(check_id + 1)  # Get the corresponding check by ID (index + 1)
+                if check:
+                    failing_levels.add(check["health_level"])
+
+        # If no failures, mark as successful
+        if not failing_levels:
+            consensus[drone_id] = HealthLevel.SUCCESSFUL
+        elif len(failing_levels) > 1:
+            # If there are multiple distinct failing levels, mark as MULTIPLE_CRITICAL
+            consensus[drone_id] = HealthLevel.MULTIPLE_CRITICAL
+        else:
+            # If all failing checks are at the same level, return that level
+            consensus[drone_id] = failing_levels.pop()
 
     return consensus
-
 
 def broadcast_consensus(mavswarm, agent_id, consensus):
     consensus_message = f"{agent_id} consensus: {','.join([f'Drone {drone_id}: {status}' for drone_id, status in consensus.items()])}"
@@ -103,7 +130,6 @@ def main():
         return
 
     agent_id = mavswarm.get_agent_id()  # Get the ID of this drone
-
 
     # Step 1: Extract the health report from the log file
     log_file = "/src/healthmanagement/logs/health_report.log"
