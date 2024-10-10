@@ -2,20 +2,24 @@ import datetime
 import gzip
 import shutil
 import os
+import logging
 
 log_file = "/src/healthmanagement/logs/health_report.log"
 report_file = "/src/healthmanagement/logs/summary_report.txt"
 compressed_file = "/src/healthmanagement/logs/summary_report_compressed.gz"
 
-# Function to log messages to a file
+# Configure the logger
+logging.basicConfig(filename=log_file, 
+                    level=logging.INFO, 
+                    format='%(asctime)s ---- %(message)s', 
+                    datefmt='%Y-%m-%d %H:%M:%S')
+
+# Function to log messages
 def log_message(message):
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(log_file, 'a') as f:
-        f.write(f"{timestamp} ---- {message}\n")
+    logging.info(message)
 
 # Function to generate the summary report
 def generate_report():
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     success_count = 0
     failure_count = 0
     compressed_report = []  # To store compressed binary entries (0 for success, 1 for failure)
@@ -43,8 +47,8 @@ def generate_report():
         # Write the date, success/failure counts, and the compressed binary list
         f.write(f"{timestamp} --- Successes: {success_count}, Failures: {failure_count} --- Compressed: {','.join(compressed_report)}\n")
 
-    with open(log_file, 'a') as f:
-            f.write(f"{timestamp} ---- Start of a new report\n")
+    # Log the start of a new report
+    log_message("Start of a new report")
 
 def compress_report():
     with open(report_file, 'rb') as f_in:
