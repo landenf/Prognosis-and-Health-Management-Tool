@@ -1,9 +1,11 @@
 from scripts.docker.docker_health_checks import Run_Docker_Health_Checks
 from scripts.ros.ros_checks import Run_Ros_Health_Checks
+from scripts.log_manager import log_message, generate_report, compress_report
 import time
 
+
 def CompanionComputerAliveStatus():
-    print("START: Companion Computer is running aboard agent.")
+    log_message("SUCCESS: Companion Computer is running aboard agent.")
 
 def main():
     
@@ -18,7 +20,9 @@ def main():
         Run_Ros_Health_Checks()
 
         #Wait 
-        print("Waiting")
+        print("Creating Report | End of Cycle")
+        generate_report()
+        compress_report()
         time.sleep(10)
         
 if __name__ == "__main__":
