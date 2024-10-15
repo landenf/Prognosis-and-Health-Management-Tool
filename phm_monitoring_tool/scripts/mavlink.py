@@ -4,7 +4,7 @@ from phm_monitoring_tool.config.HealthChecks import HealthLevel
 from pymavswarm import MavSwarm
 from argparse import ArgumentParser
 from concurrent.futures import Future
-
+from phm_monitoring_tool.config.HealthChecks import health_checks
 
 def parse_args():
     parser = ArgumentParser()
@@ -65,7 +65,7 @@ def listen_for_reports(mavswarm, timeout=30):
     print(f"Listening for reports for {timeout} seconds...")
 
     while time.time() - start_time < timeout:
-        incoming_messages = mavswarm.get_incoming_messages()  # Replace with actual method
+        incoming_messages = mavswarm.get_incoming_messages()  # TODO Replace with actual method
         for message in incoming_messages:
             sender_id = message["sender_id"]
             report_data = message["message"].split("health_check: ")[1]
@@ -73,7 +73,7 @@ def listen_for_reports(mavswarm, timeout=30):
             received_reports[sender_id] = health_check_report
             print(f"Received health report from Drone {sender_id}: {health_check_report}")
 
-        time.sleep(0.1)  # Avoid busy-waiting
+        time.sleep(0.1)
 
     return received_reports
 
@@ -93,7 +93,7 @@ def calculate_consensus(received_reports, health_checks):
     health_check_map = {check["id"]: check for check in health_checks}
 
     for drone_id, report in received_reports.items():
-        failing_levels = set()  # A set to track distinct failing levels
+        failing_levels = set()
 
         for check_id, result in enumerate(report):
             if result == 1:  # If a failure is reported
@@ -147,7 +147,7 @@ def main():
     received_reports = listen_for_reports(mavswarm, timeout=30)
 
     # Step 4: Calculate the consensus based on the received reports
-    consensus = calculate_consensus(received_reports)
+    consensus = calculate_consensus(received_reports, health_checks)
 
     # Step 5: Broadcast the consensus back to all drones
     broadcast_consensus(mavswarm, agent_id, consensus)
@@ -156,6 +156,6 @@ def main():
     mavswarm.disconnect()
     print("Disconnected from the swarm.")
 
-
+ 
 if __name__ == "__main__":
     main()
