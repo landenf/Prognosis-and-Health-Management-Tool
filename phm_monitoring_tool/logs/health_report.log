@@ -120,3 +120,182 @@
 2024-10-09 20:13:11 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
 2024-10-09 20:13:17 ---- FAILURE: No traffic detected on topic: /topic_1
 2024-10-09 20:13:18 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-10-24 14:41:45 ---- Start of a new report
+2024-10-24 14:41:45 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:41:45 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:41:45 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:41:45 ---- Disconnecting health_management_container from phm_monitoring_tool_default
+2024-10-24 14:41:46 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:41:46 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:41:46 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:41:46 ---- FAILURE: Container ros_app_container has internal health check issues: starting
+2024-10-24 14:41:46 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:41:46 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:41:46 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:41:46 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:41:47 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-10-24 14:41:48 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-10-24 14:41:54 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-10-24 14:42:00 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-10-24 14:42:06 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-10-24 14:42:06 ---- Start of a new report
+2024-10-24 14:43:48 ---- Start of a new report
+2024-10-24 14:43:48 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:43:48 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:43:49 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:43:49 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:43:49 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:43:49 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:43:49 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:43:49 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:43:49 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:43:50 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:43:50 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:43:50 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:43:51 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:43:51 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:43:57 ---- Average rate for /topic_1: 1.000
+2024-10-24 14:44:03 ---- Average rate for /topic_2: 1.001
+2024-10-24 14:44:09 ---- Average rate for /topic_3: 1.001
+2024-10-24 14:44:09 ---- Start of a new report
+2024-10-24 14:44:19 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:44:19 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:44:20 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:44:20 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:44:20 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:44:20 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:44:20 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:44:20 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:44:20 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:44:20 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:44:20 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:44:20 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:44:21 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:44:22 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:44:28 ---- Average rate for /topic_1: 0.999
+2024-10-24 14:44:34 ---- Average rate for /topic_2: 0.998
+2024-10-24 14:44:40 ---- Average rate for /topic_3: 1.001
+2024-10-24 14:44:40 ---- Start of a new report
+2024-10-24 14:44:50 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:44:50 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:44:50 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:44:50 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:44:51 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:44:51 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:44:51 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:44:51 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:44:51 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:44:51 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:44:51 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:44:51 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:44:52 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:44:53 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:44:59 ---- Average rate for /topic_1: 0.999
+2024-10-24 14:45:05 ---- Average rate for /topic_2: 1.000
+2024-10-24 14:45:11 ---- Average rate for /topic_3: 1.001
+2024-10-24 14:45:11 ---- Start of a new report
+2024-10-24 14:45:21 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:45:21 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:45:21 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:45:21 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:45:21 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:45:21 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:45:21 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:45:21 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:45:22 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:45:22 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:45:22 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:45:22 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:45:23 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:45:24 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:45:30 ---- Average rate for /topic_1: 0.998
+2024-10-24 14:45:36 ---- Average rate for /topic_2: 0.999
+2024-10-24 14:45:41 ---- Average rate for /topic_3: 1.000
+2024-10-24 14:45:41 ---- Start of a new report
+2024-10-24 14:45:51 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:45:51 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:45:52 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:45:52 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:45:52 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:45:52 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:45:52 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:45:52 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:45:52 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:45:52 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:45:52 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:45:53 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:45:53 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:45:54 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:46:00 ---- Average rate for /topic_1: 1.000
+2024-10-24 14:46:06 ---- Average rate for /topic_2: 1.003
+2024-10-24 14:46:12 ---- Average rate for /topic_3: 1.000
+2024-10-24 14:46:12 ---- Start of a new report
+2024-10-24 14:46:22 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:46:22 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:46:22 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:46:22 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:46:23 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:46:23 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:46:23 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:46:23 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:46:23 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:46:23 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:46:23 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:46:23 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:46:24 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:46:25 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:46:31 ---- Average rate for /topic_1: 1.002
+2024-10-24 14:46:37 ---- Average rate for /topic_2: 0.998
+2024-10-24 14:46:42 ---- Average rate for /topic_3: 1.000
+2024-10-24 14:46:42 ---- Start of a new report
+2024-10-24 14:46:52 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:46:52 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:46:53 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:46:53 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:46:53 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:46:53 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:46:53 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:46:53 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:46:53 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:46:53 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:46:53 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:46:54 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:46:54 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:46:55 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:47:01 ---- Average rate for /topic_1: 1.002
+2024-10-24 14:47:07 ---- Average rate for /topic_2: 1.000
+2024-10-24 14:47:13 ---- Average rate for /topic_3: 1.001
+2024-10-24 14:47:13 ---- Start of a new report
+2024-10-24 14:47:23 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:47:23 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:47:23 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:47:23 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:47:23 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:47:24 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:47:24 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:47:24 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:47:24 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:47:24 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:47:24 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:47:24 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:47:25 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:47:26 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:47:32 ---- Average rate for /topic_1: 0.999
+2024-10-24 14:47:38 ---- Average rate for /topic_2: 1.001
+2024-10-24 14:47:44 ---- Average rate for /topic_3: 0.999
+2024-10-24 14:47:44 ---- Start of a new report
+2024-10-24 14:47:54 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-10-24 14:47:54 ---- DOCKER: Checking health of ros_app_container
+2024-10-24 14:47:54 ---- ACTION: Connected volume C:\Users\LANDE\source\repos\PHM_Tool\ros_app\ros_packages to /home/catkin_ws/src in health_management_container
+2024-10-24 14:47:54 ---- Disconnecting health_management_container from ros_app_default
+2024-10-24 14:47:54 ---- Connecting PHM tool to ROS app's network: ros_app_default
+2024-10-24 14:47:54 ---- PHM tool successfully connected to ros_app_default
+2024-10-24 14:47:54 ---- SUCCESS: Container ros_app_container is running
+2024-10-24 14:47:54 ---- FAILURE: Container ros_app_container has internal health check issues: unhealthy
+2024-10-24 14:47:54 ---- SUCCESS: Both containers are connected to the same network: ros_app_default
+2024-10-24 14:47:54 ---- SUCCESS: IP Ping network check passed for ros_app_container
+2024-10-24 14:47:55 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-10-24 14:47:55 ---- SUCCESS: Found 15 devices connected to container
+2024-10-24 14:47:55 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
+2024-10-24 14:47:56 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
+2024-10-24 14:48:02 ---- Average rate for /topic_1: 1.000

@@ -42,7 +42,7 @@ def generate_report():
             compressed_report.append('1')
 
     # Write the summary report to a file with timestamps, counts, and compressed report
-    with open(report_file, 'w') as f:
+    with open(report_file, 'a') as f:
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # Write the date, success/failure counts, and the compressed binary list
         f.write(f"{timestamp} --- Successes: {success_count}, Failures: {failure_count} --- Compressed: {','.join(compressed_report)}\n")
