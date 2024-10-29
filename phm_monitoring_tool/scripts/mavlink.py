@@ -72,7 +72,7 @@ def listen_for_reports(mavswarm, timeout=30):
             health_check_report = list(map(int, report_data.split(',')))
             received_reports[sender_id] = health_check_report
             print(f"Received health report from Drone {sender_id}: {health_check_report}")
-
+ 
         time.sleep(0.1)
 
     return received_reports
