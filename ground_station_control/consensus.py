@@ -23,7 +23,7 @@ def listen_for_consensus():
     print("Listening for Consensus messages...")
     while True:
         # Wait for the next MAVLink message
-        msg = ground_control.recv_match(type='CONSENSUS', blocking=True)
+        msg = ground_control.recv_match(type='CONSENSUS', blocking=True) #TODO check that the type changes
         if not msg:
             continue
 
