@@ -72,7 +72,7 @@ def ensure_log_files_exist(log_file, report_file, compressed_file):
             print(f"Created file: {file}")
 
 # Generate the summary report
-ensure_log_files_exist(log_file, report_file, compressed_file)
-generate_report()
-compress_report()
-print(f"Report generated saved as {report_file}")
+# ensure_log_files_exist(log_file, report_file, compressed_file)
+# generate_report()
+# compress_report()
+# print(f"Report generated saved as {report_file}")

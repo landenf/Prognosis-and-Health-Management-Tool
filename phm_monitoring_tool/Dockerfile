@@ -13,6 +13,8 @@ RUN apt-get update && \
     apt-get install -y usbutils util-linux pciutils && \
     rm -rf /var/lib/apt/lists/*
 
+RUN pip3 install pymavlink
+
 # Set the working directory in the container
 WORKDIR /src
 

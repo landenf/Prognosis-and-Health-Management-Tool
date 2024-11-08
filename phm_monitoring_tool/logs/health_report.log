@@ -299,3 +299,49 @@
 2024-10-24 14:47:55 ---- SUCCESS: All required nodes are running: /node_1, /node_2, /node_3
 2024-10-24 14:47:56 ---- SUCCESS: All required topics are present: /topic_1, /topic_2, /topic_3
 2024-10-24 14:48:02 ---- Average rate for /topic_1: 1.000
+2024-11-07 15:03:17 ---- Start of a new report
+2024-11-07 15:03:17 ---- Start of a new report
+2024-11-07 15:03:17 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-07 15:03:17 ---- DOCKER: Checking health of ros_app_container
+2024-11-07 15:03:17 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-07 15:03:17 ---- DOCKER: Checking health of ros_app_container
+2024-11-07 15:03:17 ---- ERROR: connecting to volumes of ros_app_container: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-07 15:03:17 ---- ERROR: connecting to volumes of ros_app_container: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-07 15:03:17 ---- ERROR: Container not found: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-07 15:03:17 ---- ERROR: Container not found: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-07 15:03:17 ---- ERROR: Container ros_app_container not found
+2024-11-07 15:03:17 ---- ERROR: Container ros_app_container not found
+2024-11-07 15:03:17 ---- SUCCESS: Found 78 devices connected to container
+2024-11-07 15:03:17 ---- SUCCESS: Found 78 devices connected to container
+2024-11-07 15:08:52 ---- Start of a new report
+2024-11-07 15:08:52 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-07 15:08:52 ---- DOCKER: Checking health of sitl_2
+2024-11-07 15:08:52 ---- ACTION: Connected volume /home/landenf/SwarmPlanner/uav_simulator/swarm_simulator/simulator_generated_files/param_files to /root/home/param_files in health_management_container_2
+2024-11-07 15:08:52 ---- ACTION: Connected volume /home/landenf/SwarmPlanner/uav_simulator/swarm_simulator/simulator_generated_files/sitl_settings to /root/home/sitl_settings in health_management_container_2
+2024-11-07 15:08:52 ---- Disconnecting health_management_container_2 from phm_monitoring_tool_default
+2024-11-07 15:08:52 ---- Start of a new report
+2024-11-07 15:08:52 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-07 15:08:52 ---- DOCKER: Checking health of sitl_1
+2024-11-07 15:08:52 ---- ROS app is only connected to the host network, creating a new network.
+2024-11-07 15:08:52 ---- ACTION: Connected volume /home/landenf/SwarmPlanner/uav_simulator/swarm_simulator/simulator_generated_files/sitl_settings to /root/home/sitl_settings in health_management_container_1
+2024-11-07 15:08:52 ---- ACTION: Connected volume /home/landenf/SwarmPlanner/uav_simulator/swarm_simulator/simulator_generated_files/param_files to /root/home/param_files in health_management_container_1
+2024-11-07 15:08:52 ---- Disconnecting health_management_container_1 from phm_monitoring_tool_default
+2024-11-07 15:08:52 ---- ERROR: 400 Client Error for http+docker://localhost/v1.47/networks/620ed61a19083f47452f63a0bb020624dbaa1d24169781318f93631795b37a12/connect: Bad Request ("container sharing network namespace with another container or host cannot be connected to any other network")
+2024-11-07 15:08:52 ---- FAILURE: Container sitl_2 is not running: exited
+2024-11-07 15:08:52 ---- FAILURE: No common networks found between sitl_2 and health_management_container.
+2024-11-07 15:08:52 ---- Error checking files: 409 Client Error for http+docker://localhost/v1.47/containers/4a4bb660b5089b925d7bfe573c8d35f4d134778d37388bd73e0336f3aae4ce9f/exec: Conflict ("container 4a4bb660b5089b925d7bfe573c8d35f4d134778d37388bd73e0336f3aae4ce9f is not running")
+2024-11-07 15:08:52 ---- ROS app is only connected to the host network, creating a new network.
+2024-11-07 15:08:52 ---- ERROR: 409 Client Error for http+docker://localhost/v1.47/networks/create: Conflict ("network with name phm_shared_network already exists")
+2024-11-07 15:08:52 ---- FAILURE: Container sitl_1 is not running: exited
+2024-11-07 15:08:52 ---- FAILURE: No common networks found between sitl_1 and health_management_container.
+2024-11-07 15:08:52 ---- Error checking files: 409 Client Error for http+docker://localhost/v1.47/containers/95b01a77096d467ff3f79a655c95ee4d4ce25a49c5fc23cbd905d872bfbea012/exec: Conflict ("container 95b01a77096d467ff3f79a655c95ee4d4ce25a49c5fc23cbd905d872bfbea012 is not running")
+2024-11-07 15:08:53 ---- SUCCESS: Found 78 devices connected to container
+2024-11-07 15:08:53 ---- SUCCESS: Found 78 devices connected to container
+2024-11-07 15:38:44 ---- Start of a new report
+2024-11-07 15:38:44 ---- Start of a new report
+2024-11-07 15:39:14 ---- Start of a new report
+2024-11-07 15:39:14 ---- Start of a new report
+2024-11-07 15:40:04 ---- Start of a new report
+2024-11-07 15:40:04 ---- Start of a new report
+2024-11-07 15:45:04 ---- Start of a new report
+2024-11-07 15:45:04 ---- Start of a new report

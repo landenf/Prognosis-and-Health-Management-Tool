@@ -1,10 +1,51 @@
 import time
 import os
 import json
-from mavlink_communication import MavLinkHandler
-from phm_monitoring_tool.config.HealthChecks import HealthLevel, health_checks
+from pymavlink import mavutil
 
-# Function to extract the last health report
+# Class for handling MAVLink communication
+class MavLinkHandler:
+    def __init__(self, port):
+        system_id = int(os.environ.get("TARGET_SYSTEM_ID", "1"))  # Default to 1 if not set
+        self.connection = mavutil.mavlink_connection(f"udp:localhost:{port}", source_system=system_id)        
+        self.connection.wait_heartbeat()
+        print("Heartbeat received from the system")
+
+    def send_health_vector(self, agent_id, health_vector):
+        # Send health vector using DEBUG_VECT where x = companion, y = docker, z = ROS
+        self.connection.mav.debug_vect_send(
+            name=str(agent_id).encode(),
+            time_usec=int(time.time() * 1e6),
+            x=health_vector[0],
+            y=health_vector[1],
+            z=health_vector[2]
+        )
+        print(f"Sent health vector for agent {agent_id}: Companion={health_vector[0]}, Docker={health_vector[1]}, ROS={health_vector[2]}")
+
+    def send_consensus_message(self, consensus_matrix):
+        consensus_json = json.dumps(consensus_matrix)
+        self.connection.mav.statustext_send(
+            mavutil.mavlink.MAV_SEVERITY_INFO,
+            consensus_json.encode()  # Encode JSON string as bytes
+        )
+        print(f"Broadcasted consensus matrix: {consensus_json}")
+
+    def receive_messages(self, message_type="DEBUG_VECT", timeout=20):
+        start_time = time.time()
+        messages = []
+        while time.time() - start_time < timeout:
+            msg = self.connection.recv_match(blocking=True)
+            if(msg.get_type() != 'GLOBAL_POSITION_INT' and msg.get_type() != 'LOCAL_POSITION_NED'):
+                print(f"Received message: {msg}")  # Print 
+            if msg and msg.get_type() == message_type:
+                messages.append(msg)
+        return messages
+
+    def disconnect(self):
+        self.connection.close()
+        print("Disconnected from MAVLink")
+
+# Function to extract the last health report from the log file
 def extract_last_health_report(log_file_path):
     if not os.path.exists(log_file_path):
         print(f"Log file not found: {log_file_path}")
@@ -18,61 +59,48 @@ def extract_last_health_report(log_file_path):
                 compressed_data = line.split("Compressed:")[1].strip()
                 last_health_report = list(map(int, compressed_data.split(',')))
                 break
-
-    if last_health_report:
-        print(f"Extracted last health report: {last_health_report}")
-    else:
-        print("No health report found in the log file.")
-
     return last_health_report
 
-# Function to broadcast health check report
-def broadcast_health_check(handler, agent_id, health_check_report):
-    handler.send_int_array(health_check_report, name=f"Drone_{agent_id}")
-    print(f"Broadcasted health check report from Drone {agent_id}: {health_check_report}")
+# Function to broadcast health vector report
+def broadcast_health_check(handler, agent_id, health_report):
+    # Set health levels for companion, docker, ROS
+    health_vector = [
+        1 if health_report[0] > 0 else 0,  # Companion
+        1 if health_report[1] > 0 else 0,  # Docker
+        1 if health_report[2] > 0 else 0   # ROS
+    ]
+    handler.send_health_vector(agent_id, health_vector)
 
-# Function to listen for health reports
-def listen_for_reports(handler, timeout=30):
-    print(f"Listening for reports for {timeout} seconds...")
+# Function to listen and build consensus matrix
+def listen_for_reports(handler, agent_id, timeout=20):
+    print(f"Listening for health vectors for {timeout} seconds...")
     received_reports = {}
     messages = handler.receive_messages(timeout=timeout)
 
     for message in messages:
-        sender_id = message.name.decode()  # Assuming message name includes the sender ID
-        health_check_report = message.array  
-        health_check_report = list(map(int, health_check_report)) 
+        sender_id = message.name
+        health_check_report = [message.x, message.y, message.z]
         received_reports[sender_id] = health_check_report
-        print(f"Received health report from {sender_id}: {health_check_report}")
+        print(f"Received health vector from agent {sender_id}: {health_check_report}")
 
-    return received_reports
-
-def calculate_consensus(received_reports, health_checks):
-    consensus = {}
-    health_check_map = {check["id"]: check for check in health_checks}
-
+    # Build consensus matrix
+    consensus_matrix = {}
     for drone_id, report in received_reports.items():
-        failing_levels = set()
-        for check_id, result in enumerate(report):
-            if result == 1:
-                check = health_check_map.get(check_id + 1)
-                if check:
-                    failing_levels.add(check["health_level"])
+        consensus_matrix[drone_id] = {
+            "Companion": report[0],
+            "Docker": report[1],
+            "ROS": report[2]
+        }
+    print(consensus_matrix)
 
-        if not failing_levels:
-            consensus[drone_id] = HealthLevel.SUCCESSFUL
-        elif len(failing_levels) > 1:
-            consensus[drone_id] = HealthLevel.MULTIPLE_CRITICAL
-        else:
-            consensus[drone_id] = failing_levels.pop()
+    return consensus_matrix
 
-    return consensus
-
-def main():
+def run_communication():
     port = os.environ.get("MAVLINK_PORT", "14560")
     handler = MavLinkHandler(port)
     agent_id = handler.connection.target_system
 
-    log_file = "/src/healthmanagement/logs/health_report.log"
+    log_file = "/src/logs/summary_report.txt"
     health_report = extract_last_health_report(log_file)
 
     if not health_report:
@@ -80,16 +108,15 @@ def main():
         handler.disconnect()
         return
 
-    broadcast_health_check(handler, agent_id, health_report)
+    if port == '14560':
+        broadcast_health_check(handler, agent_id, health_report)
+        received_reports = listen_for_reports(handler, agent_id)
+        
+        # Send consensus matrix as a broadcast message
+        handler.send_consensus_message(received_reports)
+    else:
+        while True:
+            time.sleep(5)
+            broadcast_health_check(handler, agent_id, health_report)
 
-    received_reports = listen_for_reports(handler)
-    
-    consensus = calculate_consensus(received_reports, health_checks)
-    
-    consensus_message = json.dumps({drone_id: status for drone_id, status in consensus.items()})
-    handler.send_consensus_message(consensus_message)
-    
     handler.disconnect()
-
-if __name__ == "__main__":
-    main()
