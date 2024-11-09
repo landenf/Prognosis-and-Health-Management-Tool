@@ -3,10 +3,9 @@ import os
 import json
 from pymavlink import mavutil
 
-# Class for handling MAVLink communication
+#TODO SEPERATE OUT INTO OTHER FILE
 class MavLinkHandler:
-    def __init__(self, port):
-        system_id = int(os.environ.get("TARGET_SYSTEM_ID", "1"))  # Default to 1 if not set
+    def __init__(self, port, system_id ):
         self.connection = mavutil.mavlink_connection(f"udp:localhost:{port}", source_system=system_id)        
         self.connection.wait_heartbeat()
         print("Heartbeat received from the system")
@@ -26,7 +25,7 @@ class MavLinkHandler:
         consensus_json = json.dumps(consensus_matrix)
         self.connection.mav.statustext_send(
             mavutil.mavlink.MAV_SEVERITY_INFO,
-            consensus_json.encode()  # Encode JSON string as bytes
+            consensus_json.encode() 
         )
         print(f"Broadcasted consensus matrix: {consensus_json}")
 
@@ -35,9 +34,8 @@ class MavLinkHandler:
         messages = []
         while time.time() - start_time < timeout:
             msg = self.connection.recv_match(blocking=True)
-            if(msg.get_type() != 'GLOBAL_POSITION_INT' and msg.get_type() != 'LOCAL_POSITION_NED'):
-                print(f"Received message: {msg}")  # Print 
             if msg and msg.get_type() == message_type:
+                print(f"Received message: {msg}")
                 messages.append(msg)
         return messages
 
@@ -45,7 +43,6 @@ class MavLinkHandler:
         self.connection.close()
         print("Disconnected from MAVLink")
 
-# Function to extract the last health report from the log file
 def extract_last_health_report(log_file_path):
     if not os.path.exists(log_file_path):
         print(f"Log file not found: {log_file_path}")
@@ -61,7 +58,6 @@ def extract_last_health_report(log_file_path):
                 break
     return last_health_report
 
-# Function to broadcast health vector report
 def broadcast_health_check(handler, agent_id, health_report):
     # Set health levels for companion, docker, ROS
     health_vector = [
@@ -71,7 +67,6 @@ def broadcast_health_check(handler, agent_id, health_report):
     ]
     handler.send_health_vector(agent_id, health_vector)
 
-# Function to listen and build consensus matrix
 def listen_for_reports(handler, agent_id, timeout=20):
     print(f"Listening for health vectors for {timeout} seconds...")
     received_reports = {}
@@ -97,7 +92,8 @@ def listen_for_reports(handler, agent_id, timeout=20):
 
 def run_communication():
     port = os.environ.get("MAVLINK_PORT", "14560")
-    handler = MavLinkHandler(port)
+    system_id = int(os.environ.get("TARGET_SYSTEM_ID", "1"))
+    handler = MavLinkHandler(port, system_id)
     agent_id = handler.connection.target_system
 
     log_file = "/src/logs/summary_report.txt"
@@ -108,13 +104,16 @@ def run_communication():
         handler.disconnect()
         return
 
+    # TESTING ASPECT
     if port == '14560':
+        # ONE BROADCASTS AND THEN JUST LISTENS
         broadcast_health_check(handler, agent_id, health_report)
         received_reports = listen_for_reports(handler, agent_id)
         
         # Send consensus matrix as a broadcast message
         handler.send_consensus_message(received_reports)
     else:
+        # ONE JUST CONTINOUSLY SENDS
         while True:
             time.sleep(5)
             broadcast_health_check(handler, agent_id, health_report)
