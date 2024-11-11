@@ -1,0 +1,180 @@
+2024-11-11 23:18:16 ---- Start of a new report
+2024-11-11 23:18:16 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:18:16 ---- DOCKER: Checking health of ros_app_container
+2024-11-11 23:18:16 ---- ERROR: connecting to volumes of ros_app_container: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-11 23:18:16 ---- ERROR: Container not found: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-11 23:18:16 ---- ERROR: Container ros_app_container not found
+2024-11-11 23:18:17 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:19:17 ---- Start of a new report
+2024-11-11 23:19:17 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:19:17 ---- DOCKER: Checking health of ros_app_container
+2024-11-11 23:19:17 ---- ERROR: connecting to volumes of ros_app_container: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-11 23:19:17 ---- ERROR: Container not found: 404 Client Error for http+docker://localhost/v1.47/containers/ros_app_container/json: Not Found ("No such container: ros_app_container")
+2024-11-11 23:19:17 ---- ERROR: Container ros_app_container not found
+2024-11-11 23:19:19 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:26:45 ---- Start of a new report
+2024-11-11 23:26:45 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:26:45 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:26:45 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:26:45 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:26:45 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:26:45 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:26:45 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:26:45 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:26:45 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:26:46 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:26:46 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:26:47 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:26:48 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:26:48 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:26:49 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:26:49 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:26:50 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:26:50 ---- Start of a new report
+2024-11-11 23:27:00 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:27:00 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:27:00 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:27:00 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:27:00 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:27:00 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:27:00 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:27:00 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:27:00 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:27:00 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:27:00 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:27:00 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:27:01 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:27:01 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:27:02 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:27:02 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:27:03 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:27:03 ---- Start of a new report
+2024-11-11 23:29:11 ---- Start of a new report
+2024-11-11 23:29:11 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:29:11 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:29:11 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:29:11 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:29:11 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:29:11 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:29:11 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:29:11 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:29:11 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:29:11 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:29:11 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:29:13 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:29:13 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:29:14 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:29:14 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:29:15 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:29:15 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:29:15 ---- Start of a new report
+2024-11-11 23:29:25 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:29:25 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:29:25 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:29:25 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:29:25 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:29:25 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:29:25 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:29:25 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:29:25 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:29:25 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:29:25 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:29:26 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:29:26 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:29:27 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:29:27 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:29:28 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:29:28 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:29:28 ---- Start of a new report
+2024-11-11 23:29:39 ---- Start of a new report
+2024-11-11 23:29:39 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:29:39 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:29:39 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:29:39 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:29:39 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:29:39 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:29:39 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:29:39 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:29:39 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:29:39 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:29:39 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:29:41 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:29:41 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:29:42 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:29:42 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:29:43 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:29:43 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:29:43 ---- Start of a new report
+2024-11-11 23:29:53 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:29:53 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:29:53 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:29:53 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:29:54 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:29:54 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:29:54 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:29:54 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:29:54 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:29:54 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:29:54 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:29:54 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:29:55 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:29:55 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:29:55 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:29:56 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:29:56 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:29:56 ---- Start of a new report
+2024-11-11 23:30:06 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:30:06 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:30:06 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:30:06 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:30:07 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:30:07 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:30:07 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:30:07 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:30:07 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:30:07 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:30:07 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:30:09 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:30:09 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:30:09 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:30:10 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:30:10 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:30:11 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:30:11 ---- Start of a new report
+2024-11-11 23:30:21 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:30:21 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:30:21 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:30:21 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:30:21 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:30:21 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:30:21 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:30:21 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:30:21 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:30:21 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:30:21 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:30:22 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:30:22 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:30:23 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:30:23 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:30:23 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:30:24 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:30:24 ---- Start of a new report
+2024-11-11 23:31:08 ---- Start of a new report
+2024-11-11 23:31:08 ---- SUCCESS: Companion Computer is running aboard agent.
+2024-11-11 23:31:08 ---- DOCKER: Checking health of ros_app_container_1
+2024-11-11 23:31:08 ---- ACTION: Connected volume /home/gus/projects/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_1
+2024-11-11 23:31:08 ---- Disconnecting health_management_container_1 from aiaa_phm_tool_default
+2024-11-11 23:31:08 ---- Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2024-11-11 23:31:08 ---- PHM tool successfully connected to aiaa_phm_tool_default
+2024-11-11 23:31:08 ---- SUCCESS: Container ros_app_container_1 is running
+2024-11-11 23:31:08 ---- FAILURE: Container ros_app_container_1 has internal health check issues: starting
+2024-11-11 23:31:08 ---- SUCCESS: Both containers are connected to the same network: aiaa_phm_tool_default
+2024-11-11 23:31:08 ---- SUCCESS: IP Ping network check passed for ros_app_container_1
+2024-11-11 23:31:08 ---- SUCCESS: File check passed: /home/catkin_ws/src/python_package_example exists.
+2024-11-11 23:31:10 ---- SUCCESS: Found 84 devices connected to container
+2024-11-11 23:31:10 ---- FAILURE: Not all required nodes are running. Missing nodes: /node_1, /node_2, /node_3
+2024-11-11 23:31:11 ---- FAILURE: Missing required topics: /topic_1, /topic_2, /topic_3
+2024-11-11 23:31:11 ---- FAILURE: No traffic detected on topic: /topic_1
+2024-11-11 23:31:11 ---- FAILURE: No traffic detected on topic: /topic_2
+2024-11-11 23:31:12 ---- FAILURE: No traffic detected on topic: /topic_3
+2024-11-11 23:31:12 ---- Start of a new report

@@ -1,0 +1,13 @@
+<launch>
+
+    <group ns="agent_$(env SYS_ID)">
+
+        <param name="SystemID" value="$(optenv SYS_ID 1)" />
+        
+        <node name="phm_comms" pkg="phm_comms" type="phm_comms.py" output="screen">
+
+        </node>
+
+    </group>
+
+</launch>

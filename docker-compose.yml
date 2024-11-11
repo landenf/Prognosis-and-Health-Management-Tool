@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  ros_app_1:
+    image: ros_app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    container_name: ros_app_container_1
+    volumes:
+      - type: bind
+        source: ${PWD}/ros_app/ros_packages
+        target: /home/catkin_ws/src/
+    command: >
+      /bin/bash -c "bash"
+
+  ros_app_2:
+    image: ros_app
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    container_name: ros_app_container_2
+    volumes:
+      - type: bind
+        source: ${PWD}/ros_app/ros_packages
+        target: /home/catkin_ws/src/
+    command: >
+      /bin/bash -c "bash"
+
+  health_management_container_1:
+    container_name: health_management_container_1
+    image: phm_monitoring_container
+    tty: true
+    privileged: true
+    volumes:
+      - ./logs/agent_1/:/src/healthmanagement/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /sys:/sys
+      - /dev:/dev #Devices
+    environment:
+      - CONTAINER_TO_MONITOR=ros_app_container_1
+      - ROS_MASTER_URI=http://ros_app_container:11311
+    user: root
+
+  health_management_container_2:
+    container_name: health_management_container_2
+    image: phm_monitoring_container
+    tty: true
+    privileged: true
+    volumes:
+      - ./logs/agent_2/:/src/healthmanagement/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /sys:/sys
+      - /dev:/dev #Devices
+    environment:
+      - CONTAINER_TO_MONITOR=ros_app_container_2
+      - ROS_MASTER_URI=http://ros_app_container:11311
+    user: root
+  
+  phm_comms_1:
+    container_name: phm_c1
+    image: phm_devel
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "host"
+    volumes:
+     - ./logs/agent_1:/home/phm_logs/
+    environment:
+      SYS_ID: 1
+      ROS_MASTER_URI: "http://localhost:11311"
+    command: >
+      /bin/bash -c "source /home/catkin_ws/devel/setup.bash &&
+                    roslaunch phm_comms phm_comms.launch"
+
+  phm_comms_2:
+    container_name: phm_c2
+    image: phm_devel
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "host"
+    volumes:
+     - ./logs/agent_2:/home/phm_logs/
+    depends_on:
+     - phm_comms_1
+    environment:
+      SYS_ID: 2
+      ROS_MASTER_URI: "http://localhost:11311"
+    command: >
+      /bin/bash -c "source /home/catkin_ws/devel/setup.bash &&
+                    roslaunch --wait phm_comms phm_comms.launch"
