@@ -104,7 +104,7 @@ def run_communication():
         handler.disconnect()
         return
 
-    # TESTING ASPECT
+    # # TESTING ASPECT
     if port == '14560':
         # ONE BROADCASTS AND THEN JUST LISTENS
         broadcast_health_check(handler, agent_id, health_report)
@@ -119,3 +119,13 @@ def run_communication():
             broadcast_health_check(handler, agent_id, health_report)
 
     handler.disconnect()
+    # while True:
+    #     broadcast_health_check(handler, agent_id, health_report)
+    #     received_reports = listen_for_reports(handler, agent_id)
+    #     handler.send_consensus_message(received_reports)
+    #     time.sleep(5)
+
+
+    handler.disconnect()
+
+#TODO: 1) fix read in from summary 2) have just broadcast and listen setup corretly and disconnect correctly 3) loop in every time checks run from main
