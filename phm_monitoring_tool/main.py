@@ -3,7 +3,7 @@ from scripts.ros.ros_checks import Run_Ros_Health_Checks
 from scripts.log_manager import log_message, generate_report, compress_report
 import time
 
-from scripts.mavlink.health_report_driver import run_communication
+from phm_monitoring_tool.scripts.mavlink.consensus_driver import run_communication
 
 def CompanionComputerAliveStatus():
     log_message("SUCCESS: Companion Computer is running aboard agent.")
@@ -11,7 +11,7 @@ def CompanionComputerAliveStatus():
 def main():
 
     print('start')
-    run_communication()
+    run_communication(duration=60)
 
 # while (True):
 #         # Layer 1 -- Companion Computer 

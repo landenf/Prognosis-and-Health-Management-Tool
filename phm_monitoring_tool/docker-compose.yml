@@ -15,7 +15,7 @@ services:
       - CONTAINER_TO_MONITOR=sitl_1
       - TARGET_SYSTEM_ID=1  # Unique ID for the first container
       - ROS_MASTER_URI=http://sitl_1:11311
-      - MAVLINK_PORT=14570  # Unique MAVLink port for the first instance
+      - MAVLINK_PORT=14560  # Unique MAVLink port for the first instance
     user: root
 
   health_management_container_2:
@@ -33,5 +33,23 @@ services:
       - CONTAINER_TO_MONITOR=sitl_2
       - TARGET_SYSTEM_ID=2 # Unique ID for the first container
       - ROS_MASTER_URI=http://sitl_2:11311
-      - MAVLINK_PORT=14560 
+      - MAVLINK_PORT=14570 
+    user: root
+
+  health_management_container_3:
+    container_name: health_management_container_3
+    build: ./
+    tty: true
+    network_mode: 'host'
+    privileged: true
+    volumes:
+      - ./logs:/src/healthmanagement/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /sys:/sys
+      - /dev:/dev  # Devices
+    environment:
+      - CONTAINER_TO_MONITOR=sitl_3
+      - TARGET_SYSTEM_ID=3 # Unique ID for the first container
+      - ROS_MASTER_URI=http://sitl_3:11311
+      - MAVLINK_PORT=14580 
     user: root
