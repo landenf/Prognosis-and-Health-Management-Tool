@@ -6,24 +6,42 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: ros_app_container_1
+    network_mode: host
     volumes:
       - type: bind
         source: ${PWD}/ros_app/ros_packages
         target: /home/catkin_ws/src/
+    environment:
+      sys_id: 1
     command: >
-      /bin/bash -c "bash"
+      /bin/bash -c "source /opt/ros/noetic/setup.bash &&
+                    catkin_make &&
+                    source devel/setup.bash &&
+                    chmod +x src/multiple_nodes_example/src/node_1.py &&
+                    chmod +x src/multiple_nodes_example/src/node_2.py &&
+                    chmod +x src/multiple_nodes_example/src/node_3.py &&
+                    roslaunch src/multiple_nodes_example/launch/launch_nodes.launch"
 
   ros_app_2:
     image: ros_app
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: ros_app_container_2
+    network_mode: host
     volumes:
       - type: bind
         source: ${PWD}/ros_app/ros_packages
         target: /home/catkin_ws/src/
+    environment: 
+     sys_id: 2
     command: >
-      /bin/bash -c "bash"
+      /bin/bash -c "source /opt/ros/noetic/setup.bash &&
+                    catkin_make &&
+                    source devel/setup.bash &&
+                    chmod +x src/multiple_nodes_example/src/node_1.py &&
+                    chmod +x src/multiple_nodes_example/src/node_2.py &&
+                    chmod +x src/multiple_nodes_example/src/node_3.py &&
+                    roslaunch src/multiple_nodes_example/launch/launch_nodes.launch"
 
   health_management_container_1:
     container_name: health_management_container_1

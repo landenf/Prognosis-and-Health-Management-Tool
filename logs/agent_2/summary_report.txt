@@ -13,3 +13,67 @@
 2024-11-11 23:30:24 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
 2024-11-11 23:31:08 --- Successes: 0, Failures: 0 --- Compressed: 
 2024-11-11 23:31:12 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:22:06 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-11-14 08:22:11 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:22:24 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:23:10 --- Successes: 5, Failures: 1 --- Compressed: 0,0,1,0,0,0
+2024-11-14 08:23:14 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:23:27 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:23:41 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:23:54 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:24:09 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:24:22 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:24:36 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:25:49 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-11-14 08:25:54 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:26:07 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:26:21 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:26:34 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:26:58 --- Successes: 6, Failures: 3 --- Compressed: 0,0,1,0,0,0,0,1,1
+2024-11-14 08:27:01 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:27:15 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:27:28 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:27:43 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:27:56 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:28:10 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:34:43 --- Successes: 6, Failures: 3 --- Compressed: 0,0,1,0,0,0,0,1,1
+2024-11-14 08:34:47 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:35:00 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:35:27 --- Successes: 3, Failures: 2 --- Compressed: 0,1,0,1,0
+2024-11-14 08:35:32 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:35:45 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:35:59 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:36:12 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:36:26 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:36:39 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:36:54 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:37:07 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:37:21 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:37:34 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:37:49 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:38:02 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:38:16 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:38:29 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:38:42 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:38:57 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:39:10 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:39:24 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:39:37 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:39:50 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:40:03 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:40:17 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:40:30 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:40:44 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:41:07 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-11-14 08:41:12 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:41:25 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:41:39 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:41:52 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:42:10 --- Successes: 6, Failures: 2 --- Compressed: 0,0,1,0,0,0,0,1
+2024-11-14 08:42:13 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:42:28 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:42:40 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:42:55 --- Successes: 6, Failures: 6 --- Compressed: 0,0,1,0,0,0,0,1,1,1,1,1
+2024-11-14 08:44:02 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-11-14 08:44:22 --- Successes: 4, Failures: 7 --- Compressed: 0,0,1,1,0,0,1,1,1,1,1
+2024-11-14 08:44:52 --- Successes: 4, Failures: 7 --- Compressed: 0,0,1,1,0,0,1,1,1,1,1
