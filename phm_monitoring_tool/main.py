@@ -5,7 +5,7 @@ import time
 
 
 def CompanionComputerAliveStatus():
-    log_message("SUCCESS: Companion Computer is running aboard agent.")
+    log_message("SUCCESS: (1) Companion Computer is running aboard agent.")
 
 def main():
     

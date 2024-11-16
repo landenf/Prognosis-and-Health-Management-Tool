@@ -56,14 +56,18 @@ def connect_containers_to_same_network(phm_container, ros_container_name, client
         if 'host' in ros_networks.keys() and len(ros_networks) == 1:
             log_message(f"ROS app is only connected to the host network, creating a new network.")
 
-            # Create a new bridge network
-            new_network = client.networks.create("phm_shared_network", driver="bridge")
+            try:
+                new_network = client.networks.get("phm_shared_network")
+                log_message(f"'phm_shared_network' already exists.")
+            except docker.errors.NotFound:
+                log_message(f"'phm_shared_network' not found. Creating a new network.")
+                new_network = client.networks.create("phm_shared_network", driver="bridge")
 
             # Connect both containers to the new network
             new_network.connect(ros_container)
             new_network.connect(phm_container)
 
-            log_message(f"SUCCESS: Both containers connected to the new network: phm_shared_network")
+            log_message(f"SUCCESS: (4) Both containers connected to the new network: phm_shared_network")
             return
         else:
             # Find the first network that the ROS app container is connected to (other than host)

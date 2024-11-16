@@ -6,10 +6,10 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: ros_app_container_1
-    network_mode: host
+    #network_mode: host
     volumes:
       - type: bind
-        source: ${PWD}/ros_app/ros_packages
+        source: /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages
         target: /home/catkin_ws/src/
     environment:
       sys_id: 1
@@ -27,10 +27,10 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: ros_app_container_2
-    network_mode: host
+    #network_mode: host
     volumes:
       - type: bind
-        source: ${PWD}/ros_app/ros_packages
+        source: /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages
         target: /home/catkin_ws/src/
     environment: 
      sys_id: 2
@@ -54,6 +54,7 @@ services:
       - /sys:/sys
       - /dev:/dev #Devices
     environment:
+      - sys_id=1
       - CONTAINER_TO_MONITOR=ros_app_container_1
       - ROS_MASTER_URI=http://ros_app_container:11311
     user: root
@@ -69,6 +70,7 @@ services:
       - /sys:/sys
       - /dev:/dev #Devices
     environment:
+      - sys_id=2
       - CONTAINER_TO_MONITOR=ros_app_container_2
       - ROS_MASTER_URI=http://ros_app_container:11311
     user: root

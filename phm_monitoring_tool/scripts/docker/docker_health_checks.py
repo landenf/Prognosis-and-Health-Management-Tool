@@ -25,22 +25,22 @@ def check_container_status(container):
     try:
         container_state = container.attrs['State']
         if container_state['Status'] != 'running':
-            log_message(f"FAILURE: Container {container.name} is not running: {container_state['Status']}")
+            log_message(f"FAILURE: (2) Container {container.name} is not running: {container_state['Status']}")
             return
         else:
-            log_message(f"SUCCESS: Container {container.name} is running")
+            log_message(f"SUCCESS: (2) Container {container.name} is running")
 
         if 'Health' in container_state:
             health_status = container_state['Health']['Status']
             if health_status == 'healthy':
-                log_message(f"SUCCESS: Container {container.name} is healthy.")
+                log_message(f"SUCCESS: (2) Container {container.name} is healthy.")
             else:
-                log_message(f"FAILURE: Container {container.name} has internal health check issues: {health_status}")
+                log_message(f"FAILURE: (2) Container {container.name} has internal health check issues: {health_status}")
         else:
-            log_message(f"BYPASS: No health check defined for {container.name}.")
+            log_message(f"BYPASS: (2) No health check defined for {container.name}.")
 
     except docker.errors.NotFound:
-        log_message(f"FAILURE: Container {container.name} not found.")
+        log_message(f"FAILURE: (2) Container {container.name} not found.")
     except Exception as e:
         log_message(f"ERROR: while checking health of container {container.name}: {str(e)}")
 
@@ -58,22 +58,22 @@ def check_network(health_management_container, container_to_monitor_name, client
         common_networks = set(monitor_networks.keys()).intersection(health_management_networks.keys())
 
         if not common_networks:
-            log_message(f"FAILURE: No common networks found between {container_to_monitor_name} and health_management_container.")
+            log_message(f"FAILURE: (4) No common networks found between {container_to_monitor_name} and health_management_container.")
             return
 
         network_name = next(iter(common_networks)) 
-        log_message(f"SUCCESS: Both containers are connected to the same network: {network_name}")
+        log_message(f"SUCCESS: (4) Both containers are connected to the same network: {network_name}")
 
         # Perform ping check between containers
         monitor_ip = container_to_monitor.attrs['NetworkSettings']['Networks'][network_name]['IPAddress']
         exec_command = health_management_container.exec_run(f'ping -c 1 {monitor_ip}')
         if exec_command.exit_code != 0:
-            log_message(f"FAILURE: Network check failed for {container_to_monitor_name}. Exit code: {exec_command.exit_code}")
+            log_message(f"FAILURE: (4) Network check failed for {container_to_monitor_name}. Exit code: {exec_command.exit_code}")
             log_message(f"Output: {exec_command.output.decode()}")
         else:
-            log_message(f"SUCCESS: IP Ping network check passed for {container_to_monitor_name}")
+            log_message(f"SUCCESS: (4) IP Ping network check passed for {container_to_monitor_name}")
     except docker.errors.NotFound:
-        log_message(f"FAILURE: Health management container not found.")
+        log_message(f"FAILURE: (4) Health management container not found.")
     except Exception as e:
         log_message(f"ERROR checking network for {container_to_monitor_name}: {str(e)}")
 
@@ -83,9 +83,9 @@ def check_files(container):
         path_to_check = '/home/catkin_ws/src/python_package_example'
         exec_command = container.exec_run(f'ls {path_to_check}')
         if exec_command.exit_code != 0:
-            log_message(f"FAILED: File check failed: {path_to_check} does not exist.")
+            log_message(f"FAILED: (3) File check failed: {path_to_check} does not exist.")
         else:
-            log_message(f"SUCCESS: File check passed: {path_to_check} exists.")
+            log_message(f"SUCCESS: (3) File check passed: {path_to_check} exists.")
     except Exception as e:
         log_message(f"Error checking files: {str(e)}")
 
@@ -129,9 +129,9 @@ def check_physical_devices(container, client):
         results.extend(lspci_output)
 
     if results:
-        log_message(f"SUCCESS: Found {len(results)} devices connected to container")
+        log_message(f"SUCCESS: (5) Found {len(results)} devices connected to container")
     else:
-        log_message("FAILURE: No devices found or no output from checks.")
+        log_message("FAILURE: (5) No devices found or no output from checks.")
 
 def Run_Docker_Health_Checks():
     #Start docker checks
