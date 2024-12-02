@@ -47,14 +47,10 @@ def connect_containers_to_same_network(phm_container, ros_container_name, client
 
         # Get the networks the ROS app container is connected to
         ros_networks = get_container_networks(ros_container)
-
-        if not ros_networks:
-            log_message(f"ERROR: No networks found for {ros_container_name}")
-            return
         
         # Check if the ROS app is only connected to the host network
-        if 'host' in ros_networks.keys() and len(ros_networks) == 1:
-            log_message(f"ROS app is only connected to the host network, creating a new network.")
+        if ('host' in ros_networks.keys() and len(ros_networks) == 1) or not ros_networks:
+            log_message(f"ROS app is only connected to the host network or no networks.")
 
             try:
                 new_network = client.networks.get("phm_shared_network")

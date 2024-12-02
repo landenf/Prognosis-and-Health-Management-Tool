@@ -23,7 +23,7 @@ def main():
         print("Creating Report | End of Cycle")
         generate_report()
         compress_report()
-        time.sleep(10)
+        time.sleep(20)
         
 if __name__ == "__main__":
     main()
