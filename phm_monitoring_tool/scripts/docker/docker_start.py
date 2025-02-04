@@ -19,8 +19,10 @@ def connect_to_container_volumes(current_container, container_to_monitor, client
             destination = volume['Destination']
             current_container.exec_run(f'mount --bind {mount_point} {destination}')
             log_message(f"ACTION: Connected volume {mount_point} to {destination} in {current_container.name}")
+            return True
     except Exception as e:
         log_message(f"ERROR: connecting to volumes of {container_to_monitor}: {str(e)}")
+    
 
 def get_container_networks(container):
     """Helper function to retrieve the networks a container is connected to."""
@@ -35,14 +37,14 @@ def disconnect_from_existing_networks(container, client):
     """Disconnect the container from all networks it is currently connected to."""
     networks = get_container_networks(container)
     for network_name in networks.keys():
-        log_message(f"Disconnecting {container.name} from {network_name}")
+        log_message(f"ACTION: Disconnecting {container.name} from {network_name}")
         client.networks.get(network_name).disconnect(container)
 
 def connect_containers_to_same_network(phm_container, ros_container_name, client):
     try:
         ros_container = client.containers.get(ros_container_name)
         
-          # Disconnect PHM from any existing networks
+        # Disconnect PHM from any existing networks
         disconnect_from_existing_networks(phm_container, client)
 
         # Get the networks the ROS app container is connected to
@@ -50,13 +52,13 @@ def connect_containers_to_same_network(phm_container, ros_container_name, client
         
         # Check if the ROS app is only connected to the host network
         if ('host' in ros_networks.keys() and len(ros_networks) == 1) or not ros_networks:
-            log_message(f"ROS app is only connected to the host network or no networks.")
+            log_message(f"ACTION: ROS app is only connected to the host network or no networks.")
 
             try:
                 new_network = client.networks.get("phm_shared_network")
-                log_message(f"'phm_shared_network' already exists.")
+                print(f"'phm_shared_network' already exists.")
             except docker.errors.NotFound:
-                log_message(f"'phm_shared_network' not found. Creating a new network.")
+                print(f"'phm_shared_network' not found. Creating a new network.")
                 new_network = client.networks.create("phm_shared_network", driver="bridge")
 
             # Connect both containers to the new network
@@ -64,21 +66,21 @@ def connect_containers_to_same_network(phm_container, ros_container_name, client
             new_network.connect(phm_container)
 
             log_message(f"SUCCESS: (4) Both containers connected to the new network: phm_shared_network")
-            return
+            return True
         else:
             # Find the first network that the ROS app container is connected to (other than host)
             for network_name in ros_networks.keys():
                 if network_name != 'host':
-                    log_message(f"Connecting PHM tool to ROS app's network: {network_name}")
+                    log_message(f"ACTION: Connecting PHM tool to ROS app's network: {network_name}")
 
                     # Connect the PHM tool to this network
                     network = client.networks.get(network_name)
                     try:
                         network.connect(phm_container)
-                        log_message(f"PHM tool successfully connected to {network_name}")
+                        log_message(f"SUCCESS: PHM tool successfully connected to {network_name}")
+                        return True
                     except docker.errors.APIError as e:
                         log_message(f"ERROR: Could not connect PHM tool to network {network_name}: {str(e)}")
-                    return
 
     except docker.errors.NotFound as e:
         log_message(f"ERROR: Container not found: {str(e)}")

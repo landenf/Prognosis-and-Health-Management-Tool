@@ -14,10 +14,11 @@ def main():
         CompanionComputerAliveStatus()
         
         # Layer 2 -- Docker Container
-        Run_Docker_Health_Checks()
+        docker_successs = Run_Docker_Health_Checks()
 
-        # Layer 3 -- ROS Nodes/Enviorment
-        Run_Ros_Health_Checks()
+        # Layer 3 -- ROS Nodes/Enviorment only continue if docker is successful
+        if(docker_successs):
+            Run_Ros_Health_Checks()
 
         #Wait 
         print("Creating Report | End of Cycle")

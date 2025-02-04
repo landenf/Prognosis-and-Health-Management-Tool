@@ -83,6 +83,25 @@ def kill_ros_app_container(client):
         log_action(f"Error killing container '{CONTAINER_NAME}': {e}")
         sys.exit(1)
 
+def kill_ros_node(client):
+    ROS_COMMAND = "rosnode kill /agent_1/node_1"
+
+    try:        
+        # Get the container
+        container = client.containers.get(CONTAINER_NAME)
+        
+        # # Execute the command inside the container
+        exit_code, output = container.exec_run("/bin/bash -c 'source /opt/ros/noetic/setup.bash && " + ROS_COMMAND + "'")
+        
+        # Check the result
+        if exit_code == 0:
+            log_action(f"Command executed successfully: {output.decode('utf-8')}")
+        else:
+            log_action(f"Command failed with exit code {exit_code}: {output.decode('utf-8')}")
+    except Exception as e:
+        log_action(f"Error executing command in container: {e}")
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         log_action("Invalid arguments. Usage: python manage_container.py <check_number>")
@@ -90,6 +109,7 @@ if __name__ == "__main__":
         print("2 - Remove and restore file inside container")
         print("3 - Mark container as unhealthy")
         print("4 - Kill the ROS app container")
+        print("5 - Kill a ROS node")
         sys.exit(1)
 
     check_number = sys.argv[1]
@@ -105,6 +125,8 @@ if __name__ == "__main__":
         mark_container_as_unhealthy(client)
     elif check_number == "4":
         kill_ros_app_container(client)
+    elif check_number == "5":
+        kill_ros_node(client)
     else:
         log_action("Invalid check number. Please use 1, 2, 3, or 4.")
         sys.exit(1)

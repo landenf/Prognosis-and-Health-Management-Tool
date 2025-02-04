@@ -411,3 +411,157 @@
 2024-11-15 17:21:27 --- Successes: 4, Failures: 6 --- Compressed: 0,0,1,0,0,1,1,1,1,1
 2024-11-15 17:21:57 --- Successes: 4, Failures: 6 --- Compressed: 0,0,1,0,0,1,1,1,1,1
 2024-11-15 17:22:27 --- Successes: 4, Failures: 6 --- Compressed: 0,0,1,0,0,1,1,1,1,1
+2024-12-02 20:20:03 --- Successes: 4, Failures: 3 --- Compressed: 0,0,1,0,0,1,1
+2024-12-02 20:20:40 --- Successes: 7, Failures: 1 --- Compressed: 0,0,0,0,0,1,0,0
+2024-12-02 20:21:17 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:21:54 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:31:47 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-02 20:32:13 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 20:32:52 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:33:26 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:33:59 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:34:34 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:35:10 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:35:45 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:36:19 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:36:53 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:37:28 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:38:03 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:38:37 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:39:11 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 20:39:56 --- Successes: 7, Failures: 0 --- Compressed: 0,0,0,0,0,0,0
+2024-12-02 20:40:23 --- Successes: 4, Failures: 3 --- Compressed: 0,0,1,0,1,1,0
+2024-12-02 20:40:57 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:41:32 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:42:05 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:42:39 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:43:13 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:43:47 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:44:20 --- Successes: 6, Failures: 1 --- Compressed: 0,0,1,0,0,0,0
+2024-12-02 20:57:52 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-02 21:06:58 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-02 21:07:23 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 21:07:57 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:11:42 --- Successes: 4, Failures: 0 --- Compressed: 0,0,0,0
+2024-12-02 21:12:12 --- Successes: 6, Failures: 2 --- Compressed: 0,0,0,0,0,1,1,0
+2024-12-02 21:13:25 --- Successes: 7, Failures: 0 --- Compressed: 0,0,0,0,0,0,0
+2024-12-02 21:13:52 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 21:14:26 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:15:03 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:16:56 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-02 21:17:21 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 21:17:55 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:18:29 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:19:04 --- Successes: 7, Failures: 0 --- Compressed: 0,0,0,0,0,0,0
+2024-12-02 21:19:29 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 21:19:48 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-02 21:20:20 --- Successes: 6, Failures: 2 --- Compressed: 0,0,0,0,0,1,1,0
+2024-12-02 21:20:56 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:21:31 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:26:46 --- Successes: 7, Failures: 0 --- Compressed: 0,0,0,0,0,0,0
+2024-12-02 21:27:10 --- Successes: 5, Failures: 3 --- Compressed: 0,0,0,0,0,1,1,1
+2024-12-02 21:27:46 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:28:20 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:28:56 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:29:29 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:30:02 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:30:35 --- Successes: 8, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0
+2024-12-02 21:31:08 --- Successes: 9, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0
+2024-12-02 21:31:41 --- Successes: 9, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0
+2024-12-03 01:22:56 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:23:16 --- Successes: 7, Failures: 3 --- Compressed: 0,0,0,0,0,0,0,1,1,1
+2024-12-03 01:23:58 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:24:39 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:25:21 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:26:04 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:29:13 --- Successes: 9, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0
+2024-12-03 01:29:40 --- Successes: 9, Failures: 1 --- Compressed: 0,0,0,0,0,0,0,1,0,0
+2024-12-03 01:30:23 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:31:04 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:38:30 --- Successes: 9, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0
+2024-12-03 01:38:51 --- Successes: 7, Failures: 3 --- Compressed: 0,0,0,0,0,0,0,1,1,1
+2024-12-03 01:39:32 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:40:14 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:40:55 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:41:37 --- Successes: 10, Failures: 0 --- Compressed: 0,0,0,0,0,0,0,0,0,0
+2024-12-03 01:45:54 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:45:54 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-03 01:46:14 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-03 01:46:35 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-03 01:46:55 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-03 01:47:15 --- Successes: 1, Failures: 0 --- Compressed: 0
+2024-12-03 01:50:29 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:50:30 --- Successes: 3, Failures: 0 --- Compressed: 0,0,0
+2024-12-03 01:50:51 --- Successes: 3, Failures: 0 --- Compressed: 0,0,0
+2024-12-03 01:52:04 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:52:06 --- Successes: 3, Failures: 0 --- Compressed: 0,0,0
+2024-12-03 01:54:22 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:54:24 --- Successes: 5, Failures: 1 --- Compressed: 0,0,0,0,0,1
+2024-12-03 01:54:45 --- Successes: 5, Failures: 1 --- Compressed: 0,0,0,0,0,1
+2024-12-03 01:55:43 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:55:46 --- Successes: 5, Failures: 1 --- Compressed: 0,0,0,0,0,1
+2024-12-03 01:56:06 --- Successes: 5, Failures: 1 --- Compressed: 0,0,0,0,0,1
+2024-12-03 01:56:27 --- Successes: 5, Failures: 1 --- Compressed: 0,0,0,0,0,1
+2024-12-03 01:58:00 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 01:58:04 --- Successes: 6, Failures: 1 --- Compressed: 0,0,0,0,0,1,0
+2024-12-03 01:58:25 --- Successes: 6, Failures: 1 --- Compressed: 0,0,0,0,0,1,0
+2024-12-03 01:59:45 --- Successes: 0, Failures: 0 --- Compressed: 
+2024-12-03 02:00:12 --- Successes: 7, Failures: 3 --- Compressed: 0,0,0,0,0,1,0,1,1,0
+2024-12-03 02:00:53 --- Successes: 9, Failures: 1 --- Compressed: 0,0,0,0,0,1,0,0,0,0
+2024-12-03 02:06:26 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:06:47 --- Status Array: [1, 1, 0, 1, 1, 0, 0, 0, -1, -1]
+2024-12-03 02:07:31 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:08:14 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:08:56 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:09:37 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:32:52 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:33:18 --- Status Array: [1, 1, 0, 1, 1, 0, 1, 1, -1, -1]
+2024-12-03 02:34:00 --- Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:36:11 --- Successes: 609, Failures: 64, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:36:57 --- Successes: 614, Failures: 67, Status Array: [1, 1, 0, 1, 1, 0, 0, 1, -1, -1]
+2024-12-03 02:37:23 --- Successes: 620, Failures: 70, Status Array: [1, 1, 0, 1, 1, 0, 0, 1, -1, -1]
+2024-12-03 02:38:04 --- Successes: 628, Failures: 71, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:38:45 --- Successes: 636, Failures: 72, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:39:27 --- Successes: 644, Failures: 73, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 02:40:09 --- Successes: 652, Failures: 74, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:08:10 --- Successes: 658, Failures: 75, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:08:31 --- Successes: 663, Failures: 78, Status Array: [1, 1, 0, 1, 1, 0, 0, 0, -1, -1]
+2024-12-03 03:09:29 --- Successes: 663, Failures: 78, Status Array: [1, 1, 0, 1, 1, 0, 0, 0, -1, -1]
+2024-12-03 03:09:54 --- Successes: 670, Failures: 79, Status Array: [1, 1, 0, 1, 1, 0, 1, 1, -1, -1]
+2024-12-03 03:10:36 --- Successes: 678, Failures: 79, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:11:18 --- Successes: 686, Failures: 79, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:11:58 --- Successes: 692, Failures: 79, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:12:24 --- Successes: 698, Failures: 82, Status Array: [1, 1, 0, 1, 1, 0, 0, 1, -1, -1]
+2024-12-03 03:13:42 --- Successes: 705, Failures: 83, Status Array: [1, 1, 0, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:14:03 --- Successes: 711, Failures: 86, Status Array: [1, 1, 1, 1, 1, 0, 0, 0, -1, -1]
+2024-12-03 03:14:46 --- Successes: 720, Failures: 86, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:18:13 --- Successes: 728, Failures: 86, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:18:38 --- Successes: 736, Failures: 87, Status Array: [1, 1, 1, 1, 1, 0, 1, 1, -1, -1]
+2024-12-03 03:19:21 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:19:47 --- Successes: 6, Failures: 2, Status Array: [1, 1, 1, 1, 1, 0, 0, 1, -1, -1]
+2024-12-03 03:20:29 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:21:11 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:21:53 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:22:35 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:23:17 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:23:59 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:24:40 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:25:22 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:26:03 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:26:44 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:27:25 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:28:06 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:28:47 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:29:28 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:30:10 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:30:51 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:31:32 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:32:14 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:32:55 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:33:37 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:34:18 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:34:59 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:35:41 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:36:22 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:36:52 --- Successes: 8, Failures: 0, Status Array: [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+2024-12-03 03:37:18 --- Successes: 6, Failures: 2, Status Array: [1, 1, 1, 1, 1, 0, 0, 1, -1, -1]
