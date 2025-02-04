@@ -126,7 +126,7 @@ def main():
     # Create a new MavSwarm instance and connect
     mavswarm = MavSwarm()
     if not mavswarm.connect(args.port, args.baud):
-        print(f"Failed to connect to port {args.port} with baud {args.baud}")
+        print(f"FAULURE to connect to port {args.port} with baud {args.baud}")
         return
 
     agent_id = mavswarm.get_agent_id()  # Get the ID of this drone

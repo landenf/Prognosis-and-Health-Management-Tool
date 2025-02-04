@@ -5,7 +5,7 @@ import time
 
 
 def CompanionComputerAliveStatus():
-    log_message("SUCCESS: Companion Computer is running aboard agent.")
+    log_message("SUCCESS: (1) Companion Computer is running aboard agent.")
 
 def main():
     
@@ -14,16 +14,17 @@ def main():
         CompanionComputerAliveStatus()
         
         # Layer 2 -- Docker Container
-        Run_Docker_Health_Checks()
+        docker_successs = Run_Docker_Health_Checks()
 
-        # Layer 3 -- ROS Nodes/Enviorment
-        Run_Ros_Health_Checks()
+        # Layer 3 -- ROS Nodes/Enviorment only continue if docker is successful
+        if(docker_successs):
+            Run_Ros_Health_Checks()
 
         #Wait 
         print("Creating Report | End of Cycle")
         generate_report()
         compress_report()
-        time.sleep(10)
+        time.sleep(20)
         
 if __name__ == "__main__":
     main()

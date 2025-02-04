@@ -1,0 +1,37 @@
+[2024-12-02 14:21:09] Invalid arguments. Usage: python manage_container.py <check_number>
+[2024-12-02 14:21:16] Removing container 'ros_app_container_1' from network 'aiaa_phm_tool_default'...
+[2024-12-02 14:21:16] Container 'ros_app_container_1' removed from all networks.
+[2024-12-02 15:14:42] Invalid arguments. Usage: python manage_container.py <check_number>
+[2024-12-02 15:17:08] Container 'ros_app_container_1' has been killed.
+[2024-12-02 15:19:32] Container 'ros_app_container_1' has been killed.
+[2024-12-02 15:29:02] Invalid arguments. Usage: python manage_container.py <check_number>
+[2024-12-02 15:29:07] Removing container 'ros_app_container_1' from network 'aiaa_phm_tool_default'...
+[2024-12-02 15:29:07] Container 'ros_app_container_1' removed from all networks.
+[2024-12-02 15:29:28] File '/home/catkin_ws/src/testfile.txt' removed from container 'ros_app_container_1'.
+[2024-12-02 15:29:28] Waiting for 1 minute...
+[2024-12-02 15:30:28] File '/home/catkin_ws/src/testfile.txt' restored in container 'ros_app_container_1'.
+[2024-12-02 15:30:34] Command executed successfully: killing /agent_1/node_1
+killed
+
+[2024-12-02 15:31:25] Container 'ros_app_container_1' has been killed.
+[2024-12-02 19:25:21] Container 'ros_app_container_1' has been killed.
+[2024-12-02 19:29:32] Container 'ros_app_container_1' has been killed.
+[2024-12-02 19:40:28] Container 'ros_app_container_1' has been killed.
+[2024-12-02 20:00:58] Container 'ros_app_container_1' has been killed.
+[2024-12-02 20:08:17] Command executed successfully: killing /agent_1/node_1
+killed
+
+[2024-12-02 20:09:09] Container 'ros_app_container_1' has been killed.
+[2024-12-02 21:30:59] Invalid arguments. Usage: python manage_container.py <check_number>
+[2024-12-02 21:31:03] Removing container 'ros_app_container_1' from network 'aiaa_phm_tool_default'...
+[2024-12-02 21:31:03] Container 'ros_app_container_1' removed from all networks.
+[2024-12-02 21:31:51] Removing container 'ros_app_container_1' from network 'phm_shared_network'...
+[2024-12-02 21:31:51] Container 'ros_app_container_1' removed from all networks.
+[2024-12-02 21:33:02] File '/home/catkin_ws/src/testfile.txt' removed from container 'ros_app_container_1'.
+[2024-12-02 21:33:02] Waiting for 1 minute...
+[2024-12-02 21:34:02] File '/home/catkin_ws/src/testfile.txt' restored in container 'ros_app_container_1'.
+[2024-12-02 21:34:22] Command executed successfully: killing /agent_1/node_1
+killed
+
+[2024-12-02 21:35:21] Container 'ros_app_container_1' has been killed.
+[2024-12-02 21:36:56] Container 'ros_app_container_1' has been killed.

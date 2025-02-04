@@ -16,7 +16,7 @@ def get_node_info(container_name, node):
 def get_topic_list(container_name):
     command = "/bin/bash -c 'source /opt/ros/noetic/setup.bash && rostopic list'"
     result = exec_command_in_container(container_name, command).split()
-    return result
+    return [topic[1:] if topic.startswith('/') else topic for topic in result]
 
 def get_topic_info(container_name, topic):
     command = f"rostopic info {topic}"
@@ -32,9 +32,9 @@ def monitor_traffic(container_name, topic, timeout=5):
     result = exec_command_in_container(container_name, command)
     return result 
 
-def check_topic_subscriptions():
+def check_topic_subscriptions(sys_id, container_name):
     container_name = os.getenv('CONTAINER_TO_MONITOR')
-    required_topics = ['/topic_1','/topic_2', '/topic_3']
+    required_topics = [f'agent_{sys_id}/topic_1', f'agent_{sys_id}/topic_2', f'agent_{sys_id}/topic_3']
 
     topic_list = get_topic_list(container_name)
 
@@ -43,10 +43,10 @@ def check_topic_subscriptions():
 
     if not all_topics_present:
         missing_topics = [topic for topic in required_topics if topic not in topic_list]
-        log_message(f"FAILURE: Missing required topics: {', '.join(missing_topics)}")
+        log_message(f"FAILURE: (7) Missing required topics: {', '.join(missing_topics)}")
         return False
 
-    log_message(f"SUCCESS: All required topics are present: {', '.join(required_topics)}")
+    log_message(f"SUCCESS: (7) All required topics are present: {', '.join(required_topics)}")
 
     all_subscriptions_correct = True
 
@@ -54,14 +54,16 @@ def check_topic_subscriptions():
 
 
 
-def monitor_topic_traffic():
-    container_name = os.getenv('CONTAINER_TO_MONITOR')
-    required_topics = ['/topic_1', '/topic_2', '/topic_3']
+def monitor_topic_traffic(sys_id, container_name):
+    required_topics = [f'agent_{sys_id}/topic_1', f'agent_{sys_id}/topic_2', f'agent_{sys_id}/topic_3']
+    traffic_results = {}  
+    all_success = True  
 
     for topic in required_topics:
         traffic_data = monitor_traffic(container_name, topic.lstrip('/'))
         if "average rate:" not in traffic_data:
-            log_message(f"FAILURE: No traffic detected on topic: {topic}")
+            traffic_results[topic] = "offline"
+            all_success = False
         else:
             lines = traffic_data.splitlines()[:5]  # Get the first 5 lines
             average_rate = None
@@ -70,4 +72,14 @@ def monitor_topic_traffic():
                     average_rate = line.split('average rate:')[1].strip()
                     break
             if average_rate:
-                log_message(f"Average rate for {topic}: {average_rate}")
+                traffic_results[topic] = average_rate
+            else:
+                traffic_results[topic] = "offline"
+                all_success = False
+
+    if all_success:
+        rates_string = ', '.join([f"{topic}: {rate}" for topic, rate in traffic_results.items()])
+        log_message(f"SUCCESS: (8) All topics are active. {rates_string}")
+    else:
+        rates_string = ', '.join([f"{topic}: {rate}" for topic, rate in traffic_results.items()])
+        log_message(f"FAILURE: (8) Some topics are offline. {rates_string}")

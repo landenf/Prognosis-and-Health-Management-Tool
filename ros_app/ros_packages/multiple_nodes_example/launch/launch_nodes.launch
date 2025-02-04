@@ -1,5 +1,10 @@
 <launch>
-    <node name="node_1" pkg="multiple_nodes_example" type="node_1.py" output="screen"/>
-    <node name="node_2" pkg="multiple_nodes_example" type="node_2.py" output="screen"/>
-    <node name="node_3" pkg="multiple_nodes_example" type="node_3.py" output="screen"/>
+
+    <group ns="agent_$(env sys_id)">
+
+        <node name="node_1" pkg="multiple_nodes_example" type="node_1.py" output="screen"/>
+        <node name="node_2" pkg="multiple_nodes_example" type="node_2.py" output="screen"/>
+        <node name="node_3" pkg="multiple_nodes_example" type="node_3.py" output="screen"/>
+    
+    </group>
 </launch>

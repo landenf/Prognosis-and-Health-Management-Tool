@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  
+  phm_comms_1:
+    image: phm_devel
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    network_mode: "host"
+    environment:
+      SYS_ID: 1
+    command: >
+      /bin/bash -c "source /home/catkin_ws/devel/setup.bash &&
+                    roslaunch phm_comms phm_comms.launch"
+
+              
