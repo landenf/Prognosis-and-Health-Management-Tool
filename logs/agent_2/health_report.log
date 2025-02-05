@@ -8674,3 +8674,68 @@ Usage: ping -6 [-aAbBdDfhLnOqrRUvV] [-c count] [-i interval] [-I interface]
 2024-12-03 03:36:59 ---- FAILURE: (7) Missing required topics: agent_2/topic_1, agent_2/topic_2, agent_2/topic_3
 2024-12-03 03:37:18 ---- SUCCESS: (8) All topics are active. agent_2/topic_1: 0.998, agent_2/topic_2: 1.000, agent_2/topic_3: 0.998
 2024-12-03 03:37:18 ---- Start of a new report
+2025-02-05 02:34:17 ---- Start of a new report
+2025-02-05 02:34:18 ---- SUCCESS: (1) Companion Computer is running aboard agent.
+2025-02-05 02:34:18 ---- DOCKER: Checking health of ros_app_container_2
+2025-02-05 02:34:18 ---- ACTION: Connected volume /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_2
+2025-02-05 02:34:18 ---- ACTION: Disconnecting health_management_container_2 from aiaa_phm_tool_default
+2025-02-05 02:34:19 ---- ACTION: Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2025-02-05 02:34:20 ---- SUCCESS: PHM tool successfully connected to aiaa_phm_tool_default
+2025-02-05 02:34:20 ---- SUCCESS: (2) Container health_management_container_2 is running
+2025-02-05 02:34:20 ---- BYPASS: (2) No health check defined for health_management_container_2.
+2025-02-05 02:34:20 ---- SUCCESS: (4) Both containers are connected to the same network: aiaa_phm_tool_default
+2025-02-05 02:34:21 ---- SUCCESS: (4) IP Ping network check passed for ros_app_container_2
+2025-02-05 02:34:21 ---- SUCCESS: (3) File check failed: /home/catkin_ws/src/testfile.txt does not exist.
+2025-02-05 02:34:22 ---- SUCCESS: (5) Found 82 devices connected to container
+2025-02-05 02:34:26 ---- FAILURE: (6) Not all required nodes are running. Missing nodes: agent_2/node_1, agent_2/node_2, agent_2/node_3
+2025-02-05 02:34:32 ---- FAILURE: (7) Missing required topics: agent_2/topic_1, agent_2/topic_2, agent_2/topic_3
+2025-02-05 02:34:47 ---- FAILURE: (8) Some topics are offline. agent_2/topic_1: offline, agent_2/topic_2: offline, agent_2/topic_3: 0.998
+2025-02-05 02:34:48 ---- Start of a new report
+2025-02-05 02:35:08 ---- SUCCESS: (1) Companion Computer is running aboard agent.
+2025-02-05 02:35:08 ---- DOCKER: Checking health of ros_app_container_2
+2025-02-05 02:35:08 ---- ACTION: Connected volume /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_2
+2025-02-05 02:35:08 ---- ACTION: Disconnecting health_management_container_2 from aiaa_phm_tool_default
+2025-02-05 02:35:08 ---- ACTION: Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2025-02-05 02:35:08 ---- SUCCESS: PHM tool successfully connected to aiaa_phm_tool_default
+2025-02-05 02:35:08 ---- SUCCESS: (2) Container health_management_container_2 is running
+2025-02-05 02:35:08 ---- BYPASS: (2) No health check defined for health_management_container_2.
+2025-02-05 02:35:08 ---- SUCCESS: (4) Both containers are connected to the same network: aiaa_phm_tool_default
+2025-02-05 02:35:08 ---- SUCCESS: (4) IP Ping network check passed for ros_app_container_2
+2025-02-05 02:35:08 ---- SUCCESS: (3) File check failed: /home/catkin_ws/src/testfile.txt does not exist.
+2025-02-05 02:35:09 ---- SUCCESS: (5) Found 82 devices connected to container
+2025-02-05 02:35:10 ---- SUCCESS: (6) All required nodes are running: agent_2/node_1, agent_2/node_2, agent_2/node_3
+2025-02-05 02:35:11 ---- SUCCESS: (7) All required topics are present: agent_2/topic_1, agent_2/topic_2, agent_2/topic_3
+2025-02-05 02:35:30 ---- SUCCESS: (8) All topics are active. agent_2/topic_1: 0.996, agent_2/topic_2: 0.998, agent_2/topic_3: 1.001
+2025-02-05 02:35:30 ---- Start of a new report
+2025-02-05 02:35:50 ---- SUCCESS: (1) Companion Computer is running aboard agent.
+2025-02-05 02:35:50 ---- DOCKER: Checking health of ros_app_container_2
+2025-02-05 02:35:50 ---- ACTION: Connected volume /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_2
+2025-02-05 02:35:50 ---- ACTION: Disconnecting health_management_container_2 from aiaa_phm_tool_default
+2025-02-05 02:35:50 ---- ACTION: Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2025-02-05 02:35:50 ---- SUCCESS: PHM tool successfully connected to aiaa_phm_tool_default
+2025-02-05 02:35:50 ---- SUCCESS: (2) Container health_management_container_2 is running
+2025-02-05 02:35:50 ---- BYPASS: (2) No health check defined for health_management_container_2.
+2025-02-05 02:35:50 ---- SUCCESS: (4) Both containers are connected to the same network: aiaa_phm_tool_default
+2025-02-05 02:35:50 ---- SUCCESS: (4) IP Ping network check passed for ros_app_container_2
+2025-02-05 02:35:50 ---- SUCCESS: (3) File check failed: /home/catkin_ws/src/testfile.txt does not exist.
+2025-02-05 02:35:50 ---- SUCCESS: (5) Found 82 devices connected to container
+2025-02-05 02:35:52 ---- SUCCESS: (6) All required nodes are running: agent_2/node_1, agent_2/node_2, agent_2/node_3
+2025-02-05 02:35:53 ---- SUCCESS: (7) All required topics are present: agent_2/topic_1, agent_2/topic_2, agent_2/topic_3
+2025-02-05 02:36:12 ---- SUCCESS: (8) All topics are active. agent_2/topic_1: 1.000, agent_2/topic_2: 1.003, agent_2/topic_3: 0.999
+2025-02-05 02:36:12 ---- Start of a new report
+2025-02-05 02:36:32 ---- SUCCESS: (1) Companion Computer is running aboard agent.
+2025-02-05 02:36:32 ---- DOCKER: Checking health of ros_app_container_2
+2025-02-05 02:36:32 ---- ACTION: Connected volume /home/landenf/AIAA_PHM_Tool/ros_app/ros_packages to /home/catkin_ws/src in health_management_container_2
+2025-02-05 02:36:32 ---- ACTION: Disconnecting health_management_container_2 from aiaa_phm_tool_default
+2025-02-05 02:36:32 ---- ACTION: Connecting PHM tool to ROS app's network: aiaa_phm_tool_default
+2025-02-05 02:36:32 ---- SUCCESS: PHM tool successfully connected to aiaa_phm_tool_default
+2025-02-05 02:36:32 ---- SUCCESS: (2) Container health_management_container_2 is running
+2025-02-05 02:36:32 ---- BYPASS: (2) No health check defined for health_management_container_2.
+2025-02-05 02:36:32 ---- SUCCESS: (4) Both containers are connected to the same network: aiaa_phm_tool_default
+2025-02-05 02:36:32 ---- SUCCESS: (4) IP Ping network check passed for ros_app_container_2
+2025-02-05 02:36:32 ---- SUCCESS: (3) File check failed: /home/catkin_ws/src/testfile.txt does not exist.
+2025-02-05 02:36:32 ---- SUCCESS: (5) Found 82 devices connected to container
+2025-02-05 02:36:33 ---- SUCCESS: (6) All required nodes are running: agent_2/node_1, agent_2/node_2, agent_2/node_3
+2025-02-05 02:36:34 ---- SUCCESS: (7) All required topics are present: agent_2/topic_1, agent_2/topic_2, agent_2/topic_3
+2025-02-05 02:36:53 ---- SUCCESS: (8) All topics are active. agent_2/topic_1: 0.999, agent_2/topic_2: 1.000, agent_2/topic_3: 1.000
+2025-02-05 02:36:53 ---- Start of a new report
