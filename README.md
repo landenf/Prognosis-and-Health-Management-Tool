@@ -4,14 +4,6 @@
 
 This project focuses on developing an Integrated Prognostics and Health Monitoring (PHM) tool tailored for **Unmanned Aircraft Systems (UAS)**, specifically swarm agents. Swarm UAS missions, which rely on distributed control with no centralized system, present unique challenges in communication, health monitoring, and fault detection. The PHM tool in this project aims to ensure mission success by providing real-time diagnostics and performance reports across both hardware and software layers of UAS swarm agents.
 
-### Key Features
-
-- **Real-time Monitoring**: Continuous monitoring of critical hardware and software components aboard each UAS swarm agent.
-- **Fault Detection and Reporting**: Detects and reports issues such as communication breakdowns, hardware failures, and software malfunctions to the Ground Station Control (GSC) in real-time.
-- **Scalability**: Designed to support distributed, multi-agent UAS swarms, allowing it to scale across fleets of small UAS with minimal computational and communication overhead.
-- **Docker-Based Architecture**: The tool leverages Docker containers to encapsulate UAS control processes and ensure reliable, isolated software environments across swarm agents, enhancing portability and consistency.
-- **ROS-Integrated**: Built on the Robot Operating System (ROS), allowing seamless interaction with swarm processes and nodes through ROS topics, services, and messaging.
-
 ## Project Goals
 
 The **PHM tool** addresses the following challenges faced during UAS swarm missions:
